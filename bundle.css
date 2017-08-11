@@ -7508,9 +7508,9 @@ a:hover {
       opacity: 1; }
   .Sidebar .LogoLink {
     margin-left: 5px;
-    margin-right: 10px; }
+    margin-right: 12px; }
   .-rtl .Sidebar .LogoLink {
-      margin-left: 10px;
+      margin-left: 12px;
       margin-right: 5px; }
   .Sidebar .Title {
     margin: 0;
@@ -7519,28 +7519,30 @@ a:hover {
     position: relative;
     white-space: nowrap;
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.4); }
-  .Sidebar .Link {
-    text-decoration: none;
-    color: inherit;
-    display: block; }
-  .Sidebar .Version {
-    color: #c2ccd6; }
-  .Sidebar .Platform {
-    position: absolute;
-    display: block;
-    text-decoration: none;
-    top: 100%;
-    margin-top: 2px;
-    right: 0;
-    font-size: 9px;
-    font-weight: bold;
-    color: rgb(139, 195, 74);
-    color: var(--colorPrimary);
-    -webkit-transition: color .3s ease;
-    transition: color .3s ease;
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.4); }
-  .Sidebar .Platform:hover {
-      color: #fff; }
+  .Sidebar .Title .Link {
+      text-decoration: none;
+      color: inherit;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+  .Sidebar .Title .Version {
+      color: #c2ccd6;
+      margin-left: 5px; }
+  .Sidebar .Title .Platform {
+      position: absolute;
+      display: block;
+      text-decoration: none;
+      top: 100%;
+      margin-top: 2px;
+      right: 0;
+      font-size: 9px;
+      font-weight: bold;
+      color: #c2ccd6;
+      -webkit-transition: color .3s ease;
+      transition: color .3s ease;
+      text-shadow: 0 0 2px rgba(0, 0, 0, 0.4); }
+  .Sidebar .Title .Platform:hover {
+        color: #fff; }
   .Sidebar .SidebarContent {
     -webkit-box-flex: 1;
         -ms-flex: 1;
