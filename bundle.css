@@ -239,7 +239,7 @@ template {
   --AppSidebarWidth: 240px;
   --AppSidebarWidth-collapsed: 70px;
   --AppFooterHeight: 46px;
-  --AppLayoutTransitionDuration: .3s;
+  --AppLayoutTransitionDuration: 0.3s;
   --HeaderColorBg: white;
   --HeaderShadow: 0px 0 20px rgba(72, 72, 72, 0.09);
   --HeaderBorderBottom: 1px solid #e0e0e0;
@@ -337,20 +337,13 @@ a:hover {
     transition-property: left;
     -webkit-transition-timing-function: ease;
             transition-timing-function: ease;
-    -webkit-transition-duration: .3s;
-            transition-duration: .3s;
+    -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
     -webkit-transition-duration: var(--AppLayoutTransitionDuration);
             transition-duration: var(--AppLayoutTransitionDuration); }
   @media (max-width: 991px) {
       .App .HeaderContainer {
         left: 0; } }
-  .-rtl .App .HeaderContainer {
-      left: 0;
-      right: 240px;
-      right: var(--AppSidebarWidth); }
-  @media (max-width: 991px) {
-        .-rtl .App .HeaderContainer {
-          right: 0; } }
   .App .SidebarContainer {
     position: fixed;
     left: 0;
@@ -366,8 +359,8 @@ a:hover {
     transition-property: left;
     -webkit-transition-timing-function: ease;
             transition-timing-function: ease;
-    -webkit-transition-duration: .3s;
-            transition-duration: .3s;
+    -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
     -webkit-transition-duration: var(--AppLayoutTransitionDuration);
             transition-duration: var(--AppLayoutTransitionDuration); }
   @media (max-width: 991px) {
@@ -384,7 +377,7 @@ a:hover {
     -webkit-transition: opacity 0.3s ease;
     transition: opacity 0.3s ease;
     z-index: 35;
-    background-color: rgba(0, 0, 0, 0.7); }
+    background-color: rgba(255, 255, 255, 0.3); }
   .App .FooterContainer {
     position: absolute;
     bottom: 0;
@@ -404,8 +397,8 @@ a:hover {
     transition-property: left;
     -webkit-transition-timing-function: ease;
             transition-timing-function: ease;
-    -webkit-transition-duration: .3s;
-            transition-duration: .3s;
+    -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
     -webkit-transition-duration: var(--AppLayoutTransitionDuration);
             transition-duration: var(--AppLayoutTransitionDuration); }
   @media (max-width: 991px) {
@@ -431,8 +424,8 @@ a:hover {
     transition-property: margin-left;
     -webkit-transition-timing-function: ease;
             transition-timing-function: ease;
-    -webkit-transition-duration: .3s;
-            transition-duration: .3s;
+    -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
     -webkit-transition-duration: var(--AppLayoutTransitionDuration);
             transition-duration: var(--AppLayoutTransitionDuration); }
   @media (max-width: 991px) {
@@ -456,55 +449,34 @@ a:hover {
     position: absolute; }
   .App.-footer-fixed .FooterContainer {
     position: fixed; }
-  .App.-sidebar-closed .HeaderContainer {
-    left: 0; }
-  .App.-sidebar-closed .SidebarContainer {
-    left: calc(-1 * 240px);
-    left: calc(-1 * var(--AppSidebarWidth)); }
-  .App.-sidebar-closed .ContentContainer {
-    margin-left: 0; }
-  .App.-sidebar-closed .FooterContainer {
-    left: 0; }
-  .App.-sidebar-open .HeaderContainer {
-    left: 240px;
-    left: var(--AppSidebarWidth); }
+  @media (min-width: 992px) {
+    .App.-sidebar-closed-desktop .HeaderContainer {
+      left: 0; }
+    .App.-sidebar-closed-desktop .SidebarContainer {
+      left: calc(-1 * 240px);
+      left: calc(-1 * var(--AppSidebarWidth)); }
+    .App.-sidebar-closed-desktop .FooterContainer {
+      left: 0; }
+    .App.-sidebar-closed-desktop .ContentContainer {
+      margin-left: 0; } }
   @media (max-width: 991px) {
-      .App.-sidebar-open .HeaderContainer {
-        left: 0; } }
-  .App.-sidebar-open .SidebarContainer {
-    left: 0; }
-  .App.-sidebar-open .SidebarOverlay {
+    .App.-sidebar-open-mobile .SidebarContainer {
+      left: 0; }
+    .App.-sidebar-open-mobile .SidebarOverlay {
+      left: 0;
+      opacity: 1; }
+    .App.-sidebar-open-mobile .HeaderContainer,
+    .App.-sidebar-open-mobile .ContentContainer,
+    .App.-sidebar-open-mobile .FooterContainer {
+      -webkit-filter: blur(2px);
+              filter: blur(2px); } }
+  .-rtl .App .HeaderContainer {
     left: 0;
-    opacity: 1; }
-  .App.-sidebar-open .ContentContainer {
-    margin-left: 240px;
-    margin-left: var(--AppSidebarWidth); }
+    right: 240px;
+    right: var(--AppSidebarWidth); }
   @media (max-width: 991px) {
-      .App.-sidebar-open .ContentContainer {
-        margin-left: 0; } }
-  .App.-sidebar-open .FooterContainer {
-    left: 240px;
-    left: var(--AppSidebarWidth); }
-  @media (max-width: 991px) {
-      .App.-sidebar-open .FooterContainer {
-        left: 0; } }
-  .App.-sidebar-open .HeaderContainer,
-  .App.-sidebar-open .ContentContainer,
-  .App.-sidebar-open .FooterContainer {
-    -webkit-filter: blur(5px);
-            filter: blur(5px); }
-  .App.-bg-fixed .ContentBackground {
-    background-attachment: fixed; }
-  .App.-bg1 .ContentBackground {
-    opacity: 0.4;
-    background-size: 100%;
-    background-image: url(/assets/page-bg-1.svg);
-    background-repeat: no-repeat; }
-  .App.-bg2 .ContentBackground {
-    opacity: 0.4;
-    background-size: cover;
-    background-image: url(/assets/page-bg-2.svg);
-    background-repeat: no-repeat; }
+      .-rtl .App .HeaderContainer {
+        right: 0; } }
   .-rtl .App .SidebarContainer {
     left: auto;
     right: 0; }
@@ -527,6 +499,21 @@ a:hover {
   @media (max-width: 991px) {
       .-rtl .App .ContentContainer {
         margin-right: 0; } }
+  @media (min-width: 992px) {
+    .-rtl .App.-sidebar-closed-desktop .HeaderContainer {
+      right: 0; }
+    .-rtl .App.-sidebar-closed-desktop .SidebarContainer {
+      right: calc(-1 * 240px);
+      right: calc(-1 * var(--AppSidebarWidth)); }
+    .-rtl .App.-sidebar-closed-desktop .FooterContainer {
+      right: 0; }
+    .-rtl .App.-sidebar-closed-desktop .ContentContainer {
+      margin-right: 0; } }
+  @media (max-width: 991px) {
+    .-rtl .App.-sidebar-open-mobile .SidebarContainer {
+      right: 0; }
+    .-rtl .App.-sidebar-open-mobile .SidebarOverlay {
+      right: 0; } }
 .Dashboard .Intro {
   text-align: center;
   margin-bottom: 40px;
@@ -7186,6 +7173,9 @@ a:hover {
     -webkit-box-shadow: none;
             box-shadow: none; }
 
+.Dashboard .Items .ColTitle a {
+  font-weight: normal; }
+
 .Dashboard .Items .ColStats {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -7308,7 +7298,8 @@ a:hover {
 
 .DashboardHistory #DashboardHistoryAudienceChart,
 .DashboardHistory #DashboardHistoryDownloadsChart {
-  height: 220px; }
+  height: 220px;
+  overflow: hidden; }
 .DashboardStats .CardBlock {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7395,29 +7386,6 @@ a:hover {
 @media (min-width: 992px) and (max-width: 1199px) {
   .DashboardStats .StatName {
     font-size: 12px; } }
-.Footer {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 0 35px;
-  background-color: rgb(255, 255, 255);
-  background-color: var(--FooterColorBg);
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  -webkit-box-shadow: var(--FooterShadow);
-          box-shadow: var(--FooterShadow); }
-  .-rtl .Footer {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse; }
 .Sidebar {
   width: 100%;
   display: -webkit-box;
@@ -7446,6 +7414,15 @@ a:hover {
   /*----------  Sidebar Footer  ----------*/ }
   @media (max-width: 991px) {
     .Sidebar {
+      -webkit-box-shadow: none;
+              box-shadow: none; }
+      .-sidebar-open-mobile .Sidebar {
+        -webkit-box-shadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
+                box-shadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
+        -webkit-box-shadow: var(--SidebarShadow);
+                box-shadow: var(--SidebarShadow); } }
+  @media (min-width: 992px) {
+    .-sidebar-closed-desktop .Sidebar {
       -webkit-box-shadow: none;
               box-shadow: none; } }
   .Sidebar:before {
@@ -7762,6 +7739,29 @@ a:hover {
       -webkit-box-flex: 1;
           -ms-flex-positive: 1;
               flex-grow: 1; }
+.Footer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 35px;
+  background-color: rgb(255, 255, 255);
+  background-color: var(--FooterColorBg);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-box-shadow: var(--FooterShadow);
+          box-shadow: var(--FooterShadow); }
+  .-rtl .Footer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse; }
 .Header {
   width: 100%;
   display: -webkit-box;
@@ -7803,11 +7803,11 @@ a:hover {
       -webkit-box-direction: reverse;
           -ms-flex-direction: row-reverse;
               flex-direction: row-reverse; }
-  .Header .SidebarButton {
+  .Header .ControlButton {
     padding: 5px 9px;
     font-size: 1.3em;
     margin-right: 5px; }
-  .-rtl .Header .SidebarButton {
+  .-rtl .Header .ControlButton {
       margin-right: 0;
       margin-left: 5px; }
   .Header .ProjectNav {
