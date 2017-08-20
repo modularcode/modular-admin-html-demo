@@ -314,7 +314,7 @@ template {
   --FooterShadow: none;
   --SidebarColorBg: #3b4c5d;
   --SidebarColorText: rgba(255, 255, 255, 0.8);
-  --SidebarBgImage: url("/sidebar-bg-1.jpg");
+  --SidebarBgImage: url("/modular-admin-html-demo/sidebar-bg-1.jpg");
   --SidebarBgImageOpacity: 1;
   --SidebarShadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
   --SidebarNavColorText: rgba(255, 255, 255, 0.6);
@@ -11472,7 +11472,7 @@ pre {
     background-position: center;
     background-repeat: repeat;
     background-size: cover;
-    background-image: url('/sidebar-bg-1.jpg');
+    background-image: url('/modular-admin-html-demo/sidebar-bg-1.jpg');
     background-image: var(--SidebarBgImage);
     opacity: 1;
     opacity: var(--SidebarBgImageOpacity);
