@@ -304,7 +304,7 @@ template {
   --AppHeaderHeight: 60px;
   --AppHeaderHeight-xs: 50px;
   --AppSidebarWidth: 240px;
-  --AppSidebarWidth-collapsed: 70px;
+  --AppSidebarWidth-compact: 70px;
   --AppFooterHeight: 46px;
   --AppLayoutTransitionDuration: 0.3s;
   --HeaderColorBg: white;
@@ -318,6 +318,7 @@ template {
   --SidebarBgImageOpacity: 1;
   --SidebarShadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
   --SidebarNavColorText: rgba(255, 255, 255, 0.6);
+  --SidebarNavColorText-open: rgba(255, 255, 255, 0.6);
   --SidebarNavColorText-active: white;
   --PagePaddingVertical-xs: 15px;
   --PagePaddingHorizontal-xs: 10px;
@@ -11100,8 +11101,8 @@ pre {
     display: -ms-flexbox;
     display: flex;
     z-index: 40;
-    -webkit-transition-property: left;
-    transition-property: left;
+    -webkit-transition-property: left width;
+    transition-property: left width;
     -webkit-transition-timing-function: ease;
             transition-timing-function: ease;
     -webkit-transition-duration: 0.3s;
@@ -11194,6 +11195,29 @@ pre {
     position: absolute; }
   .App.-footer-fixed .FooterContainer {
     position: fixed; }
+  @media (min-width: 768px) {
+    .App.-sidebar-compact .HeaderContainer {
+      left: 70px;
+      left: var(--AppSidebarWidth-compact); } }
+  @media (min-width: 768px) {
+    .App.-sidebar-compact .SidebarContainer {
+      width: 70px;
+      width: var(--AppSidebarWidth-compact); } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .App.-sidebar-compact .SidebarContainer {
+      left: 0; } }
+  @media (min-width: 768px) {
+    .App.-sidebar-compact .FooterContainer {
+      left: 70px;
+      left: var(--AppSidebarWidth-compact); } }
+  @media (min-width: 768px) {
+    .App.-sidebar-compact .ContentContainer {
+      margin-left: 70px;
+      margin-left: var(--AppSidebarWidth-compact); } }
+  @media (min-width: 992px) {
+    .App.-sidebar-compact.-sidebar-closed-desktop .SidebarContainer {
+      left: calc(-1 * 70px);
+      left: calc(-1 * var(--AppSidebarWidth-compact)); } }
   @media (min-width: 992px) {
     .App.-sidebar-closed-desktop .HeaderContainer {
       left: 0; }
@@ -11309,6 +11333,9 @@ pre {
   .-rtl .Header .ControlButton {
       margin-right: 0;
       margin-left: 5px; }
+  @media (min-width: 768px) {
+    .-sidebar-compact .Header #HeaderSidebarToggleButton {
+      display: none; } }
   .Header .ProjectNav {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -11457,6 +11484,12 @@ pre {
                 box-shadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
         -webkit-box-shadow: var(--SidebarShadow);
                 box-shadow: var(--SidebarShadow); } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .-sidebar-compact .Sidebar {
+      -webkit-box-shadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
+              box-shadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
+      -webkit-box-shadow: var(--SidebarShadow);
+              box-shadow: var(--SidebarShadow); } }
   @media (min-width: 992px) {
     .-sidebar-closed-desktop .Sidebar {
       -webkit-box-shadow: none;
@@ -11496,12 +11529,17 @@ pre {
         flex-shrink: 0;
     height: 60px;
     height: var(--AppHeaderHeight);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease; }
   .-rtl .Sidebar .SidebarHeader {
       -webkit-box-orient: horizontal;
       -webkit-box-direction: reverse;
           -ms-flex-direction: row-reverse;
               flex-direction: row-reverse; }
+  @media (min-width: 768px) {
+      .-sidebar-compact .Sidebar .SidebarHeader {
+        padding-left: 11px; } }
   .Sidebar .Logo {
     width: 38px;
     height: 38px;
@@ -11531,6 +11569,10 @@ pre {
     color: #fff;
     position: relative;
     white-space: nowrap;
+    overflow: hidden;
+    opacity: 1;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.4); }
   .Sidebar .Title .Link {
       text-decoration: none;
@@ -11556,6 +11598,9 @@ pre {
       text-shadow: 0 0 2px rgba(0, 0, 0, 0.4); }
   .Sidebar .Title .Platform:hover {
         color: #fff; }
+  @media (min-width: 768px) {
+      .-sidebar-compact .Sidebar .Title {
+        opacity: 0; } }
   .Sidebar .SidebarContent {
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -11624,8 +11669,11 @@ pre {
       color: var(--SidebarNavColorText);
       cursor: pointer;
       padding: 0 20px 0 51px;
-      font-weight: normal; }
-  .Sidebar .SidebarNav a.-active, .Sidebar .SidebarNav a.-open {
+      font-weight: normal;
+      text-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+  .Sidebar .SidebarNav a.-active {
         color: rgb(255, 255, 255);
         color: var(--SidebarNavColorText-active); }
   .Sidebar .SidebarNav a:hover {
@@ -11639,13 +11687,68 @@ pre {
             -ms-flex-pack: end;
                 justify-content: flex-end;
         padding: 0 51px 0 20px; }
+  .Sidebar .SidebarNav > a span,
+    .Sidebar .SidebarNav > .NavGroup > a span {
+      opacity: 1;
+      -webkit-transition: opacity .3s ease;
+      transition: opacity .3s ease; }
+  @media (min-width: 768px) {
+      .-sidebar-compact .Sidebar .SidebarNav > a, .-sidebar-compact
+      .Sidebar .SidebarNav > .NavGroup > a {
+        padding-right: 5px;
+        overflow: hidden; }
+        .-sidebar-compact .Sidebar .SidebarNav > a:after, .-sidebar-compact
+        .Sidebar .SidebarNav > .NavGroup > a:after {
+          right: 7px; }
+        .-sidebar-compact .Sidebar .SidebarNav > a span, .-sidebar-compact
+        .Sidebar .SidebarNav > .NavGroup > a span {
+          opacity: 0; } }
+  .Sidebar .SidebarNav .NavGroup.-open > a {
+      color: rgba(255, 255, 255, 0.6);
+      color: var(--SidebarNavColorText-open); }
+  .Sidebar .SidebarNav .NavGroup.-open > a:after {
+        color: rgb(255, 255, 255);
+        color: var(--SidebarNavColorText-active); }
+  .Sidebar .SidebarNav .NavGroup.-open > a:hover {
+        color: rgb(255, 255, 255);
+        color: var(--SidebarNavColorText-active); }
+  .Sidebar .SidebarNav .NavGroup {
+      position: relative; }
+  .Sidebar .SidebarNav .NavGroup > a:after {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        display: block;
+        content: "\F054";
+        font-size: .8em;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        margin-top: 2px;
+        -webkit-transition: -webkit-transform .3s ease;
+        transition: -webkit-transform .3s ease;
+        transition: transform .3s ease;
+        transition: transform .3s ease, -webkit-transform .3s ease;
+        -webkit-transform: translate(0, -50%);
+                transform: translate(0, -50%); }
+  .-rtl .Sidebar .SidebarNav .NavGroup > a:after {
+          right: auto;
+          left: 10px; }
+  .Sidebar .SidebarNav .NavGroup .NavGroup > a:after {
+        right: 12px; }
   .Sidebar .SidebarNav .NavGroup nav {
-      overflow-x: visible;
-      overflow-y: hidden;
-      height: 0; }
+        overflow-x: visible;
+        overflow-y: hidden;
+        display: none; }
   .Sidebar .SidebarNav .NavGroup nav a {
-        font-size: 0.9em;
-        height: 36px; }
+          font-size: 0.9em;
+          height: 36px; }
+  .Sidebar .SidebarNav .NavGroup.-open > a:after {
+        -webkit-transform: translate(0, -50%) rotate(90deg);
+                transform: translate(0, -50%) rotate(90deg); }
   .Sidebar .SidebarNav nav a {
       padding-left: 57px; }
   .Sidebar .SidebarNav nav a .Icon {
@@ -11697,7 +11800,6 @@ pre {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    background-color: rgba(255, 255, 255, 0.09);
     position: relative; }
   .Sidebar .SidebarFooter .SidebarFooterNav {
       position: absolute;
@@ -11724,7 +11826,8 @@ pre {
         -webkit-transition: background-color .3s ease, color .3s ease;
         transition: background-color .3s ease, color .3s ease;
         color: rgba(255, 255, 255, 0.6);
-        color: var(--SidebarNavColorText); }
+        color: var(--SidebarNavColorText);
+        background-color: rgba(255, 255, 255, 0.09); }
   .Sidebar .SidebarFooter .SidebarFooterNav a:hover {
           color: rgb(255, 255, 255);
           color: var(--SidebarNavColorText-active);
@@ -11734,47 +11837,55 @@ pre {
         -webkit-box-direction: reverse;
             -ms-flex-direction: row-reverse;
                 flex-direction: row-reverse; }
-  .Sidebar .SidebarFooter .LinkCustomize {
-      -webkit-box-flex: 1;
-          -ms-flex: 1;
-              flex: 1;
-      -webkit-box-pack: start;
-          -ms-flex-pack: start;
-              justify-content: flex-start;
-      padding: 0 20px 0 51px;
-      border-right: 1px solid rgba(255, 255, 255, 0.1);
-      -webkit-box-flex: 3.5;
-          -ms-flex-positive: 3.5;
-              flex-grow: 3.5; }
-  .Sidebar .SidebarFooter .LinkCustomize .Icon {
-        position: absolute;
-        font-size: 20px;
-        width: 26px;
-        height: 46px;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+  .Sidebar .SidebarFooter .SidebarFooterNav .LinkCustomize {
+        -webkit-box-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+        padding: 0 20px 0 51px;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        -webkit-box-flex: 3.5;
+            -ms-flex-positive: 3.5;
+                flex-grow: 3.5; }
+  .Sidebar .SidebarFooter .SidebarFooterNav .LinkCustomize .Icon {
+          position: absolute;
+          font-size: 20px;
+          width: 26px;
+          height: 46px;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          left: 20px;
+          top: 0; }
+  .-rtl .Sidebar .SidebarFooter .SidebarFooterNav .LinkCustomize {
+          border-right: none;
+          border-left: 1px solid rgba(255, 255, 255, 0.1); }
+  .-rtl .Sidebar .SidebarFooter .SidebarFooterNav .LinkCustomize .Icon {
+            left: auto;
+            right: 20px; }
+  .Sidebar .SidebarFooter .SidebarFooterNav .LinkToggleCompact {
         -webkit-box-pack: center;
             -ms-flex-pack: center;
                 justify-content: center;
-        left: 20px;
-        top: 0; }
-  .-rtl .Sidebar .SidebarFooter .LinkCustomize {
-        border-right: none;
-        border-left: 1px solid rgba(255, 255, 255, 0.1); }
-  .-rtl .Sidebar .SidebarFooter .LinkCustomize .Icon {
-          left: auto;
-          right: 20px; }
-  .Sidebar .SidebarFooter .LinkCollapse {
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      -webkit-box-flex: 1;
-          -ms-flex-positive: 1;
-              flex-grow: 1; }
+        -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+                flex-grow: 1; }
+  @media (max-width: 767px) {
+          .Sidebar .SidebarFooter .SidebarFooterNav .LinkToggleCompact {
+            display: none;
+            background-color: red; } }
+  @media (min-width: 768px) {
+          .-sidebar-compact .Sidebar .SidebarFooter .SidebarFooterNav .LinkToggleCompact .Icon {
+            -webkit-transform: rotate(180deg);
+                    transform: rotate(180deg); } }
 .Footer {
   width: 100%;
   display: -webkit-box;
@@ -11883,6 +11994,9 @@ pre {
       margin-right: 0;
       -webkit-transform: scaleX(-1);
               transform: scaleX(-1); }
+  .DashboardStats .StatContent {
+    margin-left: auto;
+    text-align: right; }
   .DashboardStats .StatValue {
     font-size: 20px;
     line-height: 24px;
@@ -11894,6 +12008,10 @@ pre {
   @media (min-width: 992px) and (max-width: 1199px) {
       .DashboardStats .StatValue {
         font-size: 18px; } }
+  @media (min-width: 1200px) {
+      .DashboardStats .StatValue {
+        font-size: 22px;
+        line-height: 26px; } }
   .DashboardStats .StatName {
     font-size: 14px;
     color: #7e8e9f; }
@@ -11921,6 +12039,11 @@ pre {
 .DashboardHistory #DashboardHistoryDownloadsChart {
   height: 220px;
   overflow: hidden; }
+
+@media (min-width: 1200px) {
+    .DashboardHistory #DashboardHistoryAudienceChart,
+    .DashboardHistory #DashboardHistoryDownloadsChart {
+      height: 260px; } }
 .Dashboard .Items .ItemList {
   font-size: .9em; }
 

@@ -4542,7 +4542,7 @@ return hooks;
 // unguarded in another place, it seems safer to define global only for this module
 
 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	__webpack_require__(16),
+	__webpack_require__(17),
 	__webpack_require__(2),
 	__webpack_require__(195),
 	__webpack_require__(22),
@@ -5061,7 +5061,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 	__webpack_require__(19),
 	__webpack_require__(216),
 	__webpack_require__(219),
-	__webpack_require__(15),
+	__webpack_require__(16),
 	__webpack_require__(220),
 	__webpack_require__(67),
 	__webpack_require__(14),
@@ -7576,6 +7576,27 @@ return jQuery;
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+__webpack_require__(324);
+
+var _Util = __webpack_require__(325);
+
+var _Util2 = _interopRequireDefault(_Util);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _Util2.default;
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	__webpack_require__(1),
 	__webpack_require__(26),
@@ -8018,7 +8039,7 @@ return jQuery;
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function() {
@@ -8030,7 +8051,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function() {
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8047,27 +8068,6 @@ var _theme2 = _interopRequireDefault(_theme);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _theme2.default;
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-__webpack_require__(324);
-
-var _Util = __webpack_require__(325);
-
-var _Util2 = _interopRequireDefault(_Util);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _Util2.default;
 
 /***/ }),
 /* 19 */
@@ -8619,7 +8619,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function() {
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	__webpack_require__(16)
+	__webpack_require__(17)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = function( arr ) {
 	"use strict";
 
@@ -8633,7 +8633,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	__webpack_require__(16)
+	__webpack_require__(17)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = function( arr ) {
 	"use strict";
 
@@ -9248,7 +9248,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 	__webpack_require__(11),
 	__webpack_require__(12),
 	__webpack_require__(19),
-	__webpack_require__(15),
+	__webpack_require__(16),
 	__webpack_require__(208)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = function( jQuery, document, rcssNum, rnothtmlwhite, cssExpand, isHiddenWithinTree, swap,
 	adjustCSS, dataPriv, showHide ) {
@@ -10410,7 +10410,7 @@ return function( elem, options, callback, args ) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	__webpack_require__(16)
+	__webpack_require__(17)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = function( arr ) {
 	"use strict";
 
@@ -10424,7 +10424,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	__webpack_require__(16)
+	__webpack_require__(17)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = function( arr ) {
 	"use strict";
 
@@ -24949,7 +24949,7 @@ var _Typography = __webpack_require__(328);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
-var _Util = __webpack_require__(18);
+var _Util = __webpack_require__(15);
 
 var _Util2 = _interopRequireDefault(_Util);
 
@@ -27836,7 +27836,7 @@ return support;
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	__webpack_require__(1),
-	__webpack_require__(15)
+	__webpack_require__(16)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = function( jQuery ) {
 
 "use strict";
@@ -29425,7 +29425,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 	__webpack_require__(8),
 
 	__webpack_require__(5),
-	__webpack_require__(15),
+	__webpack_require__(16),
 	__webpack_require__(3) // contains
 ], __WEBPACK_AMD_DEFINE_RESULT__ = function( jQuery, access, document, documentElement, rnumnonpx,
              curCSS, addGetHookIf, support, nodeName ) {
@@ -29652,7 +29652,7 @@ return jQuery;
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	__webpack_require__(1),
 	__webpack_require__(10),
-	__webpack_require__(15)
+	__webpack_require__(16)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = function( jQuery, access ) {
 
 "use strict";
@@ -29866,7 +29866,7 @@ var _chart = __webpack_require__(238);
 
 var _chart2 = _interopRequireDefault(_chart);
 
-var _theme = __webpack_require__(17);
+var _theme = __webpack_require__(18);
 
 var _theme2 = _interopRequireDefault(_theme);
 
@@ -42307,7 +42307,7 @@ variables = Object.assign(variables, {
   'AppHeaderHeight': '60px',
   'AppHeaderHeight-xs': '50px',
   'AppSidebarWidth': '240px',
-  'AppSidebarWidth-collapsed': '70px',
+  'AppSidebarWidth-compact': '70px',
   'AppFooterHeight': '46px',
   'AppLayoutTransitionDuration': '0.3s',
 
@@ -42332,6 +42332,9 @@ variables = Object.assign(variables, {
 
   // Sidebar Nav
   'SidebarNavColorText': function SidebarNavColorText() {
+    return variables.colors.white.fade(0.4);
+  },
+  'SidebarNavColorText-open': function SidebarNavColorTextOpen() {
     return variables.colors.white.fade(0.4);
   },
   'SidebarNavColorText-active': function SidebarNavColorTextActive() {
@@ -47933,7 +47936,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Util = __webpack_require__(18);
+var _Util = __webpack_require__(15);
 
 var _Util2 = _interopRequireDefault(_Util);
 
@@ -48003,6 +48006,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var Util = {};
+
+Util.getViewportWidth = function () {
+  return Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+};
 
 Util.randomScalingFactor = function () {
   return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
@@ -48266,20 +48273,50 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _theme = __webpack_require__(17);
+var _theme = __webpack_require__(18);
 
 var _theme2 = _interopRequireDefault(_theme);
+
+var _Util = __webpack_require__(15);
+
+var _Util2 = _interopRequireDefault(_Util);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Sidebar = {};
 
-Sidebar.init = function () {};
+Sidebar.init = function () {
+
+  // Navigation
+
+  var $NavGroups = $('#SidebarNav .NavGroup');
+  var $Navs = $('#SidebarNav nav');
+
+  $('.NavGroup > a').on('click', function (e) {
+    e.preventDefault();
+
+    var $NavGroup = $(this).closest('.NavGroup');
+    var $NavGroupParents = $(this).parents('.NavGroup');
+
+    var $Nav = $NavGroup.find('> nav');
+    var $NavParemts = $Nav.parents('nav');
+
+    $NavGroups.not($NavGroup).not($NavGroupParents).removeClass('-open');
+    $NavGroup.toggleClass('-open');
+
+    $Navs.not($Nav).not($NavParemts).slideUp('fast');
+    $Nav.slideToggle('fast');
+  });
+
+  // Collapse
+
+  $('#SidebarToggleCompactLink').on('click', Sidebar.toggleCompact);
+};
 
 Sidebar.toggle = function () {
   var $App = $('#App');
 
-  var viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  var viewportWidth = _Util2.default.getViewportWidth();
 
   // Current viewport is desktop
   if (viewportWidth > 991) {
@@ -48296,7 +48333,7 @@ Sidebar.toggle = function () {
 Sidebar.close = function () {
   var $App = $('#App');
 
-  var viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  var viewportWidth = _Util2.default.getViewportWidth();
 
   // Current viewport is desktop
   if (viewportWidth > 991) {
@@ -48313,11 +48350,11 @@ Sidebar.close = function () {
 Sidebar.open = function () {
   var $App = $('#App');
 
-  var viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  var viewportWidth = _Util2.default.getViewportWidth();
 
   // Current viewport is desktop
   if (viewportWidth > 991) {
-    $App.removelass('-sidebar-closed-desktop');
+    $App.removeClass('-sidebar-closed-desktop');
   }
   // Current viewport is mobile
   else {
@@ -48327,7 +48364,26 @@ Sidebar.open = function () {
   notifyLayoutUpdate();
 };
 
-Sidebar.toggleCollapse = function () {};
+Sidebar.toggleCompact = function (e) {
+
+  e.preventDefault();
+
+  var $App = $('#App');
+
+  $App.toggleClass('-sidebar-compact');
+  $App.addClass('-sidebar-open-mobile');
+  $App.removeClass('-sidebar-closed-desktop');
+
+  var viewportWidth = _Util2.default.getViewportWidth();
+
+  if (viewportWidth > 767 && $App.hasClass('-sidebar-compact')) {
+    $App.removeClass('-sidebar-open-mobile');
+  } else {
+    $App.addClass('-sidebar-open-mobile');
+  }
+
+  notifyLayoutUpdate();
+};
 
 function notifyLayoutUpdate() {
   var variables = _theme2.default.get();
@@ -48484,11 +48540,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _Chart = __webpack_require__(20);
 
-var _theme = __webpack_require__(17);
+var _theme = __webpack_require__(18);
 
 var _theme2 = _interopRequireDefault(_theme);
 
-var _Util = __webpack_require__(18);
+var _Util = __webpack_require__(15);
 
 var _Util2 = _interopRequireDefault(_Util);
 
@@ -48651,11 +48707,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _Chart = __webpack_require__(20);
 
-var _theme = __webpack_require__(17);
+var _theme = __webpack_require__(18);
 
 var _theme2 = _interopRequireDefault(_theme);
 
-var _Util = __webpack_require__(18);
+var _Util = __webpack_require__(15);
 
 var _Util2 = _interopRequireDefault(_Util);
 
@@ -48784,11 +48840,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _Chart = __webpack_require__(20);
 
-var _theme = __webpack_require__(17);
+var _theme = __webpack_require__(18);
 
 var _theme2 = _interopRequireDefault(_theme);
 
-var _Util = __webpack_require__(18);
+var _Util = __webpack_require__(15);
 
 var _Util2 = _interopRequireDefault(_Util);
 
