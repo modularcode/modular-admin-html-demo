@@ -10358,7 +10358,11 @@ Object.defineProperty(exports, "__esModule", {
 
 __webpack_require__(337);
 
-var _Sidebar = __webpack_require__(338);
+__webpack_require__(338);
+
+__webpack_require__(339);
+
+var _Sidebar = __webpack_require__(340);
 
 var _Sidebar2 = _interopRequireDefault(_Sidebar);
 
@@ -24836,7 +24840,7 @@ var _App = __webpack_require__(330);
 
 var _App2 = _interopRequireDefault(_App);
 
-var _Auth = __webpack_require__(357);
+var _Auth = __webpack_require__(359);
 
 var _Auth2 = _interopRequireDefault(_Auth);
 
@@ -42325,10 +42329,11 @@ variables = Object.assign(variables, {
   'SidebarColorText': function SidebarColorText() {
     return variables['colorText-inverse'].fade(0.2);
   },
-  // 'SidebarBgImage':         'none',
+  // 'SidebarBgImage':        'none',
   'SidebarBgImage': 'url(\'~' + PUBLIC_PATH + 'sidebar-bg-1.jpg\')',
   'SidebarBgImageOpacity': 1,
   'SidebarShadow': '0px 0px 30px rgba(72, 72, 72, 0.72)',
+  'SidebarPaddingHorizontal': '20px',
 
   // Sidebar Nav
   'SidebarNavColorText': function SidebarNavColorText() {
@@ -48132,11 +48137,11 @@ var _Sidebar = __webpack_require__(38);
 
 var _Sidebar2 = _interopRequireDefault(_Sidebar);
 
-var _Dashboard = __webpack_require__(341);
+var _Dashboard = __webpack_require__(343);
 
 var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
-var _List = __webpack_require__(355);
+var _List = __webpack_require__(357);
 
 var _List2 = _interopRequireDefault(_List);
 
@@ -48157,8 +48162,6 @@ App.init = function () {
 
   _common2.default.init();
   _Dashboard2.default.init();
-
-  $('#SidebarOverlay').on('click', _Sidebar2.default.close);
 };
 
 exports.default = App;
@@ -48184,7 +48187,7 @@ var _Sidebar = __webpack_require__(38);
 
 var _Sidebar2 = _interopRequireDefault(_Sidebar);
 
-var _Footer = __webpack_require__(339);
+var _Footer = __webpack_require__(341);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
@@ -48264,6 +48267,18 @@ exports.default = Header;
 
 /***/ }),
 /* 338 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 339 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48287,10 +48302,17 @@ var Sidebar = {};
 
 Sidebar.init = function () {
 
+  var $App = $('#App');
+
+  // Close sidebar on overlay click
+
+  $('#SidebarOverlay').on('click', Sidebar.close);
+
   // Navigation
 
-  var $NavGroups = $('#SidebarNav .NavGroup');
-  var $Navs = $('#SidebarNav nav');
+  var $SidebarNav = $('#SidebarNav');
+  var $NavGroups = $SidebarNav.find('.NavGroup');
+  var $Navs = $SidebarNav.find('nav');
 
   $('.NavGroup > a').on('click', function (e) {
     e.preventDefault();
@@ -48304,11 +48326,42 @@ Sidebar.init = function () {
     $NavGroups.not($NavGroup).not($NavGroupParents).removeClass('-open');
     $NavGroup.toggleClass('-open');
 
-    $Navs.not($Nav).not($NavParemts).slideUp('fast');
-    $Nav.slideToggle('fast');
+    if ($App.hasClass('-sidebar-compact')) {
+      $Navs.not($Nav).not($NavParemts).fadeOut('fast');
+      $Nav.fadeToggle('fast');
+    } else {
+      $Navs.not($Nav).not($NavParemts).slideUp('fast');
+      $Nav.slideToggle('fast');
+    }
+
+    // Check if sidebar has at least one open NavGroup
+    if ($SidebarNav.find('> .NavGroup.-open').length) {
+      $App.addClass('-sidebar-nav-open');
+    } else {
+      $App.removeClass('-sidebar-nav-open');
+    }
   });
 
-  // Collapse
+  $('#SidebarOverlay').on('click', function () {
+    if ($App.hasClass('-sidebar-compact')) {
+      $Navs.filter(':visible').fadeOut('fast');
+      $NavGroups.removeClass('-open');
+      $App.removeClass('-sidebar-nav-open');
+    }
+  });
+
+  $SidebarNav.find('.DismissBtn').on('click', function (e) {
+
+    e.preventDefault();
+
+    if ($App.hasClass('-sidebar-compact')) {
+      $Navs.filter(':visible').fadeOut('fast');
+      $NavGroups.removeClass('-open');
+      $App.removeClass('-sidebar-nav-open');
+    }
+  });
+
+  // Toggle Compact
 
   $('#SidebarToggleCompactLink').on('click', Sidebar.toggleCompact);
 };
@@ -48385,6 +48438,8 @@ Sidebar.toggleCompact = function (e) {
   notifyLayoutUpdate();
 };
 
+Sidebar.closeNestedNavs = function (e) {};
+
 function notifyLayoutUpdate() {
   var variables = _theme2.default.get();
   var timeout = 1000 * parseFloat(variables.AppLayoutTransitionDuration) || 500;
@@ -48396,27 +48451,6 @@ function notifyLayoutUpdate() {
 
 exports.default = Sidebar;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ }),
-/* 339 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-__webpack_require__(340);
-
-exports.default = {};
-
-/***/ }),
-/* 340 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 341 */
@@ -48431,13 +48465,7 @@ Object.defineProperty(exports, "__esModule", {
 
 __webpack_require__(342);
 
-var _Dashboard = __webpack_require__(343);
-
-var _Dashboard2 = _interopRequireDefault(_Dashboard);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _Dashboard2.default;
+exports.default = {};
 
 /***/ }),
 /* 342 */
@@ -48456,19 +48484,46 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Stats = __webpack_require__(344);
+__webpack_require__(344);
+
+var _Dashboard = __webpack_require__(345);
+
+var _Dashboard2 = _interopRequireDefault(_Dashboard);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _Dashboard2.default;
+
+/***/ }),
+/* 344 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 345 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _Stats = __webpack_require__(346);
 
 var _Stats2 = _interopRequireDefault(_Stats);
 
-var _History = __webpack_require__(346);
+var _History = __webpack_require__(348);
 
 var _History2 = _interopRequireDefault(_History);
 
-var _Items = __webpack_require__(349);
+var _Items = __webpack_require__(351);
 
 var _Items2 = _interopRequireDefault(_Items);
 
-var _SalesBreakdown = __webpack_require__(352);
+var _SalesBreakdown = __webpack_require__(354);
 
 var _SalesBreakdown2 = _interopRequireDefault(_SalesBreakdown);
 
@@ -48486,40 +48541,13 @@ Dashboard.init = function () {
 exports.default = Dashboard;
 
 /***/ }),
-/* 344 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(345);
-
-/***/ }),
-/* 345 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 __webpack_require__(347);
-
-var _History = __webpack_require__(348);
-
-var _History2 = _interopRequireDefault(_History);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _History2.default;
 
 /***/ }),
 /* 347 */
@@ -48529,6 +48557,33 @@ exports.default = _History2.default;
 
 /***/ }),
 /* 348 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+__webpack_require__(349);
+
+var _History = __webpack_require__(350);
+
+var _History2 = _interopRequireDefault(_History);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _History2.default;
+
+/***/ }),
+/* 349 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48668,7 +48723,7 @@ History.init = function () {
 exports.default = History;
 
 /***/ }),
-/* 349 */
+/* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48678,9 +48733,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__webpack_require__(350);
+__webpack_require__(352);
 
-var _Items = __webpack_require__(351);
+var _Items = __webpack_require__(353);
 
 var _Items2 = _interopRequireDefault(_Items);
 
@@ -48689,13 +48744,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _Items2.default;
 
 /***/ }),
-/* 350 */
+/* 352 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 351 */
+/* 353 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48801,7 +48856,7 @@ exports.default = Items;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
-/* 352 */
+/* 354 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48811,9 +48866,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__webpack_require__(353);
+__webpack_require__(355);
 
-var _SalesBreakdown = __webpack_require__(354);
+var _SalesBreakdown = __webpack_require__(356);
 
 var _SalesBreakdown2 = _interopRequireDefault(_SalesBreakdown);
 
@@ -48822,13 +48877,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _SalesBreakdown2.default;
 
 /***/ }),
-/* 353 */
+/* 355 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 354 */
+/* 356 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48880,40 +48935,13 @@ SalesBreakdown.init = function () {
 exports.default = SalesBreakdown;
 
 /***/ }),
-/* 355 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(356);
-
-/***/ }),
-/* 356 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 357 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 __webpack_require__(358);
-
-var _Auth = __webpack_require__(359);
-
-var _Auth2 = _interopRequireDefault(_Auth);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _Auth2.default;
 
 /***/ }),
 /* 358 */
@@ -48923,6 +48951,33 @@ exports.default = _Auth2.default;
 
 /***/ }),
 /* 359 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+__webpack_require__(360);
+
+var _Auth = __webpack_require__(361);
+
+var _Auth2 = _interopRequireDefault(_Auth);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _Auth2.default;
+
+/***/ }),
+/* 360 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 361 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -317,6 +317,7 @@ template {
   --SidebarBgImage: url("/modular-admin-html-demo/sidebar-bg-1.jpg");
   --SidebarBgImageOpacity: 1;
   --SidebarShadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
+  --SidebarPaddingHorizontal: 20px;
   --SidebarNavColorText: rgba(255, 255, 255, 0.6);
   --SidebarNavColorText-open: rgba(255, 255, 255, 0.6);
   --SidebarNavColorText-active: white;
@@ -11113,6 +11114,8 @@ pre {
       .App .SidebarContainer {
         left: calc(-1 * 240px);
         left: calc(-1 * var(--AppSidebarWidth)); } }
+  .-sidebar-compact .App .SidebarContainer {
+      position: absolute; }
   .App .SidebarOverlay {
     position: absolute;
     left: 200vw;
@@ -11123,7 +11126,7 @@ pre {
     -webkit-transition: opacity 0.3s ease;
     transition: opacity 0.3s ease;
     z-index: 35;
-    background-color: rgba(255, 255, 255, 0.3); }
+    background-color: rgba(0, 0, 0, 0.1); }
   .App .FooterContainer {
     position: absolute;
     bottom: 0;
@@ -11237,6 +11240,17 @@ pre {
     .App.-sidebar-open-mobile .HeaderContainer,
     .App.-sidebar-open-mobile .ContentContainer,
     .App.-sidebar-open-mobile .FooterContainer {
+      -webkit-filter: blur(2px);
+              filter: blur(2px); } }
+  @media (min-width: 768px) {
+    .App.-sidebar-compact.-sidebar-nav-open .SidebarContainer {
+      left: 0; }
+    .App.-sidebar-compact.-sidebar-nav-open .SidebarOverlay {
+      left: 0;
+      opacity: 1; }
+    .App.-sidebar-compact.-sidebar-nav-open .HeaderContainer,
+    .App.-sidebar-compact.-sidebar-nav-open .ContentContainer,
+    .App.-sidebar-compact.-sidebar-nav-open .FooterContainer {
       -webkit-filter: blur(2px);
               filter: blur(2px); } }
   .-rtl .App .HeaderContainer {
@@ -11610,7 +11624,8 @@ pre {
     border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
   .Sidebar .SidebarContent::-webkit-scrollbar {
       width: 14px;
-      height: 18px; }
+      height: 18px;
+      background: transparent; }
   .Sidebar .SidebarContent::-webkit-scrollbar-thumb {
       height: 6px;
       border: 4px solid transparent;
@@ -11622,173 +11637,6 @@ pre {
       background-color: rgb(139, 195, 74);
       background-color: var(--colorPrimary);
       -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05); }
-  .Sidebar .SidebarNav {
-    font-size: 15px;
-    padding-bottom: 15px; }
-  .Sidebar .SidebarNav .Icon {
-      position: absolute;
-      font-size: 20px;
-      width: 26px;
-      height: 44px;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      left: 20px;
-      top: 0; }
-  .-rtl .Sidebar .SidebarNav .Icon {
-        left: auto;
-        right: 20px; }
-  .Sidebar .SidebarNav .Divider {
-      display: block;
-      height: 1px;
-      margin: 3px 20px;
-      background-color: rgba(255, 255, 255, 0.13); }
-  .Sidebar .SidebarNav a {
-      position: relative;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      width: 100%;
-      height: 44px;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -webkit-box-pack: start;
-          -ms-flex-pack: start;
-              justify-content: flex-start;
-      text-decoration: none;
-      -webkit-transition: color .3s ease, background .3s ease;
-      transition: color .3s ease, background .3s ease;
-      color: rgba(255, 255, 255, 0.6);
-      color: var(--SidebarNavColorText);
-      cursor: pointer;
-      padding: 0 20px 0 51px;
-      font-weight: normal;
-      text-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
-      white-space: nowrap;
-      text-overflow: ellipsis; }
-  .Sidebar .SidebarNav a.-active {
-        color: rgb(255, 255, 255);
-        color: var(--SidebarNavColorText-active); }
-  .Sidebar .SidebarNav a:hover {
-        color: rgb(255, 255, 255);
-        color: var(--SidebarNavColorText-active); }
-  .Sidebar .SidebarNav a.-accented > .Icon {
-        color: rgb(139, 195, 74);
-        color: var(--colorPrimary); }
-  .-rtl .Sidebar .SidebarNav a {
-        -webkit-box-pack: end;
-            -ms-flex-pack: end;
-                justify-content: flex-end;
-        padding: 0 51px 0 20px; }
-  .Sidebar .SidebarNav > a span,
-    .Sidebar .SidebarNav > .NavGroup > a span {
-      opacity: 1;
-      -webkit-transition: opacity .3s ease;
-      transition: opacity .3s ease; }
-  @media (min-width: 768px) {
-      .-sidebar-compact .Sidebar .SidebarNav > a, .-sidebar-compact
-      .Sidebar .SidebarNav > .NavGroup > a {
-        padding-right: 5px;
-        overflow: hidden; }
-        .-sidebar-compact .Sidebar .SidebarNav > a:after, .-sidebar-compact
-        .Sidebar .SidebarNav > .NavGroup > a:after {
-          right: 7px; }
-        .-sidebar-compact .Sidebar .SidebarNav > a span, .-sidebar-compact
-        .Sidebar .SidebarNav > .NavGroup > a span {
-          opacity: 0; } }
-  .Sidebar .SidebarNav .NavGroup.-open > a {
-      color: rgba(255, 255, 255, 0.6);
-      color: var(--SidebarNavColorText-open); }
-  .Sidebar .SidebarNav .NavGroup.-open > a:after {
-        color: rgb(255, 255, 255);
-        color: var(--SidebarNavColorText-active); }
-  .Sidebar .SidebarNav .NavGroup.-open > a:hover {
-        color: rgb(255, 255, 255);
-        color: var(--SidebarNavColorText-active); }
-  .Sidebar .SidebarNav .NavGroup {
-      position: relative; }
-  .Sidebar .SidebarNav .NavGroup > a:after {
-        display: inline-block;
-        font: normal normal normal 14px/1 FontAwesome;
-        font-size: inherit;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        display: block;
-        content: "\F054";
-        font-size: .8em;
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        margin-top: 2px;
-        -webkit-transition: -webkit-transform .3s ease;
-        transition: -webkit-transform .3s ease;
-        transition: transform .3s ease;
-        transition: transform .3s ease, -webkit-transform .3s ease;
-        -webkit-transform: translate(0, -50%);
-                transform: translate(0, -50%); }
-  .-rtl .Sidebar .SidebarNav .NavGroup > a:after {
-          right: auto;
-          left: 10px; }
-  .Sidebar .SidebarNav .NavGroup .NavGroup > a:after {
-        right: 12px; }
-  .Sidebar .SidebarNav .NavGroup nav {
-        overflow-x: visible;
-        overflow-y: hidden;
-        display: none; }
-  .Sidebar .SidebarNav .NavGroup nav a {
-          font-size: 0.9em;
-          height: 36px; }
-  .Sidebar .SidebarNav .NavGroup.-open > a:after {
-        -webkit-transform: translate(0, -50%) rotate(90deg);
-                transform: translate(0, -50%) rotate(90deg); }
-  .Sidebar .SidebarNav nav a {
-      padding-left: 57px; }
-  .Sidebar .SidebarNav nav a .Icon {
-        left: 26px; }
-  .-rtl .Sidebar .SidebarNav nav a {
-        padding-left: 0;
-        padding-right: 57px; }
-  .-rtl .Sidebar .SidebarNav nav a .Icon {
-          left: auto;
-          right: 26px; }
-  .Sidebar .SidebarNav nav nav a {
-      padding-left: 63px; }
-  .Sidebar .SidebarNav nav nav a .Icon {
-        left: 32px; }
-  .-rtl .Sidebar .SidebarNav nav nav a {
-        padding-left: 0;
-        padding-right: 63px; }
-  .-rtl .Sidebar .SidebarNav nav nav a .Icon {
-          left: auto;
-          right: 32px; }
-  .Sidebar .SidebarNav nav nav nav a {
-      padding-left: 69px; }
-  .Sidebar .SidebarNav nav nav nav a .Icon {
-        left: 38px; }
-  .-rtl .Sidebar .SidebarNav nav nav nav a {
-        padding-left: 0;
-        padding-right: 69px; }
-  .-rtl .Sidebar .SidebarNav nav nav nav a .Icon {
-          left: auto;
-          right: 38px; }
-  .Sidebar .SidebarNav nav nav nav nav a {
-      padding-left: 75px; }
-  .Sidebar .SidebarNav nav nav nav nav a .Icon {
-        left: 44px; }
-  .-rtl .Sidebar .SidebarNav nav nav nav nav a {
-        padding-left: 0;
-        padding-right: 75px; }
-  .-rtl .Sidebar .SidebarNav nav nav nav nav a .Icon {
-          left: auto;
-          right: 44px; }
   .Sidebar .SidebarFooter {
     height: 46px;
     -ms-flex-negative: 0;
@@ -11886,6 +11734,270 @@ pre {
           .-sidebar-compact .Sidebar .SidebarFooter .SidebarFooterNav .LinkToggleCompact .Icon {
             -webkit-transform: rotate(180deg);
                     transform: rotate(180deg); } }
+.SidebarNav {
+  font-size: 15px;
+  padding-bottom: 15px;
+  overflow: visible; }
+  .SidebarNav .Divider {
+    display: block;
+    height: 1px;
+    margin: 3px 20px;
+    background-color: rgba(255, 255, 255, 0.13); }
+  .SidebarNav .NavIcon {
+    position: absolute;
+    font-size: 20px;
+    width: 26px;
+    height: 44px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    left: 20px;
+    top: 0; }
+  .-rtl .SidebarNav .NavIcon {
+      left: auto;
+      right: 20px; }
+  .SidebarNav .CompactNavGroupName {
+    display: none; }
+  .SidebarNav .NavLink {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 44px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    text-decoration: none;
+    -webkit-transition: color .3s ease, background .3s ease;
+    transition: color .3s ease, background .3s ease;
+    color: rgba(255, 255, 255, 0.6);
+    color: var(--SidebarNavColorText);
+    cursor: pointer;
+    padding: 0 20px 0 51px;
+    font-weight: normal;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+  .SidebarNav .NavLink.-active {
+      color: rgb(255, 255, 255);
+      color: var(--SidebarNavColorText-active); }
+  .SidebarNav .NavLink:hover {
+      color: rgb(255, 255, 255);
+      color: var(--SidebarNavColorText-active); }
+  .SidebarNav .NavLink.-accented > .Icon {
+      color: rgb(139, 195, 74);
+      color: var(--colorPrimary); }
+  .-rtl .SidebarNav .NavLink {
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end;
+      padding: 0 51px 0 20px; }
+  .SidebarNav > .NavLink span,
+  .SidebarNav > .NavGroup > .NavLink span {
+    opacity: 1;
+    -webkit-transition: opacity .3s ease;
+    transition: opacity .3s ease; }
+  .SidebarNav .NavGroup.-open > .NavLink {
+    color: rgba(255, 255, 255, 0.6);
+    color: var(--SidebarNavColorText-open); }
+  .SidebarNav .NavGroup.-open > .NavLink:after {
+      color: rgb(255, 255, 255);
+      color: var(--SidebarNavColorText-active); }
+  .SidebarNav .NavGroup.-open > .NavLink:hover {
+      color: rgb(255, 255, 255);
+      color: var(--SidebarNavColorText-active); }
+  .SidebarNav .NavGroup {
+    position: relative; }
+  .SidebarNav .NavGroup > .NavLink:after {
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: block;
+      content: "\F054";
+      font-size: .8em;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      margin-top: 2px;
+      -webkit-transition: -webkit-transform .3s ease;
+      transition: -webkit-transform .3s ease;
+      transition: transform .3s ease;
+      transition: transform .3s ease, -webkit-transform .3s ease;
+      -webkit-transform: translate(0, -50%);
+              transform: translate(0, -50%); }
+  .-rtl .SidebarNav .NavGroup > .NavLink:after {
+        right: auto;
+        left: 10px; }
+  .SidebarNav .NavGroup .NavGroup > a:after {
+      right: 12px; }
+  .SidebarNav .NavGroup .Nav {
+      overflow-x: visible;
+      overflow-y: hidden;
+      display: none; }
+  .SidebarNav .NavGroup .Nav a {
+        font-size: 0.9em;
+        height: 36px; }
+  .SidebarNav .NavGroup.-open > a:after {
+      -webkit-transform: translate(0, -50%) rotate(90deg);
+              transform: translate(0, -50%) rotate(90deg); }
+  .App:not(.-sidebar-compact) .SidebarNav nav .NavLink {
+  padding-left: 57px; }
+  .App:not(.-sidebar-compact) .SidebarNav nav .NavLink .Icon {
+    left: 26px; }
+  .-rtl .App:not(.-sidebar-compact) .SidebarNav nav .NavLink {
+    padding-left: 0;
+    padding-right: 57px; }
+  .-rtl .App:not(.-sidebar-compact) .SidebarNav nav .NavLink .Icon {
+      left: auto;
+      right: 26px; }
+  .App:not(.-sidebar-compact) .SidebarNav nav nav .NavLink {
+  padding-left: 63px; }
+  .App:not(.-sidebar-compact) .SidebarNav nav nav .NavLink .Icon {
+    left: 32px; }
+  .-rtl .App:not(.-sidebar-compact) .SidebarNav nav nav .NavLink {
+    padding-left: 0;
+    padding-right: 63px; }
+  .-rtl .App:not(.-sidebar-compact) .SidebarNav nav nav .NavLink .Icon {
+      left: auto;
+      right: 32px; }
+  .App:not(.-sidebar-compact) .SidebarNav nav nav nav .NavLink {
+  padding-left: 69px; }
+  .App:not(.-sidebar-compact) .SidebarNav nav nav nav .NavLink .Icon {
+    left: 38px; }
+  .-rtl .App:not(.-sidebar-compact) .SidebarNav nav nav nav .NavLink {
+    padding-left: 0;
+    padding-right: 69px; }
+  .-rtl .App:not(.-sidebar-compact) .SidebarNav nav nav nav .NavLink .Icon {
+      left: auto;
+      right: 38px; }
+  .App:not(.-sidebar-compact) .SidebarNav nav nav nav nav .NavLink {
+  padding-left: 75px; }
+  .App:not(.-sidebar-compact) .SidebarNav nav nav nav nav .NavLink .Icon {
+    left: 44px; }
+  .-rtl .App:not(.-sidebar-compact) .SidebarNav nav nav nav nav .NavLink {
+    padding-left: 0;
+    padding-right: 75px; }
+  .-rtl .App:not(.-sidebar-compact) .SidebarNav nav nav nav nav .NavLink .Icon {
+      left: auto;
+      right: 44px; }
+.App.-sidebar-compact .SidebarContent {
+  overflow: visible; }
+
+@media (min-width: 768px) {
+  .App.-sidebar-compact .SidebarNav .CompactNavGroupName {
+    display: block; }
+  .App.-sidebar-compact .SidebarNav > .NavGroup {
+    width: 70px;
+    width: var(--AppSidebarWidth-compact); }
+    .App.-sidebar-compact .SidebarNav > .NavGroup > .NavLink:after {
+      -webkit-transform: translate(0, -50%) !important;
+              transform: translate(0, -50%) !important; }
+    .App.-sidebar-compact .SidebarNav > .NavGroup > .Nav {
+      position: fixed;
+      left: 70px;
+      left: var(--AppSidebarWidth-compact);
+      margin-left: 5px;
+      bottom: 5px;
+      top: 5px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background-color: rgba(255, 255, 255, 0.97);
+      -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+              box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+      width: 240px;
+      width: var(--AppSidebarWidth);
+      border-radius: 0 6px 6px 0; }
+      .App.-sidebar-compact .SidebarNav > .NavGroup > .Nav .NavLink {
+        text-shadow: none;
+        padding: 0 20px;
+        color: rgb(139, 195, 74);
+        color: var(--colorPrimary);
+        height: 40px; }
+        .App.-sidebar-compact .SidebarNav > .NavGroup > .Nav .NavLink:hover {
+          background-color: rgba(0, 0, 0, 0.03); }
+    .App.-sidebar-compact .SidebarNav > .NavGroup:before {
+      content: " ";
+      display: block;
+      width: 10px;
+      height: 30px;
+      position: absolute;
+      top: 8px;
+      right: -11px;
+      z-index: 999;
+      border: 15px solid transparent;
+      border-right-color: #fff;
+      opacity: 0;
+      -webkit-transition: opacity .3s ease;
+      transition: opacity .3s ease; }
+    .App.-sidebar-compact .SidebarNav > .NavGroup.-open:before {
+      opacity: 1; }
+    .App.-sidebar-compact .SidebarNav > .NavGroup.-open > .NavLink:not(.-active) {
+      color: rgb(139, 195, 74);
+      color: var(--colorPrimary); }
+      .App.-sidebar-compact .SidebarNav > .NavGroup.-open > .NavLink:not(.-active):after {
+        color: inherit; }
+  .App.-sidebar-compact .SidebarNav > .NavLink,
+  .App.-sidebar-compact .SidebarNav > .NavGroup > .NavLink {
+    padding-right: 5px;
+    overflow: hidden; }
+    .App.-sidebar-compact .SidebarNav > .NavLink:after,
+    .App.-sidebar-compact .SidebarNav > .NavGroup > .NavLink:after {
+      right: 7px; }
+    .App.-sidebar-compact .SidebarNav > .NavLink span,
+    .App.-sidebar-compact .SidebarNav > .NavGroup > .NavLink span {
+      opacity: 0; }
+  .App.-sidebar-compact .SidebarNav .CompactNavGroupName {
+    display: block;
+    color: rgb(79, 95, 111);
+    color: var(--colorText);
+    position: relative;
+    font-size: 1.1em;
+    white-space: nowrap;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    padding-right: 50px;
+    padding-left: 20px;
+    border-bottom: 1px solid rgb(215, 221, 228);
+    border-bottom: 1px solid var(--colorDivider);
+    margin-bottom: 0; }
+    .App.-sidebar-compact .SidebarNav .CompactNavGroupName .DismissBtn {
+      padding: 0;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      right: 3px;
+      top: 7px;
+      position: absolute;
+      display: block;
+      margin-left: auto;
+      color: rgb(215, 221, 228);
+      color: var(--colorDivider);
+      text-align: center;
+      border-radius: 4px;
+      -webkit-transition: all .3s ease;
+      transition: all .3s ease;
+      font-size: 1.2em; }
+      .App.-sidebar-compact .SidebarNav .CompactNavGroupName .DismissBtn .Icon {
+        display: inline-block;
+        position: static;
+        margin: 0; }
+      .App.-sidebar-compact .SidebarNav .CompactNavGroupName .DismissBtn:hover {
+        color: rgb(139, 195, 74);
+        color: var(--colorPrimary); } }
 .Footer {
   width: 100%;
   display: -webkit-box;
