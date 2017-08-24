@@ -11088,9 +11088,6 @@ pre {
             transition-duration: 0.3s;
     -webkit-transition-duration: var(--AppLayoutTransitionDuration);
             transition-duration: var(--AppLayoutTransitionDuration); }
-  @media (max-width: 991px) {
-      .App .HeaderContainer {
-        left: 0; } }
   .App .SidebarContainer {
     position: fixed;
     left: 0;
@@ -11110,12 +11107,6 @@ pre {
             transition-duration: 0.3s;
     -webkit-transition-duration: var(--AppLayoutTransitionDuration);
             transition-duration: var(--AppLayoutTransitionDuration); }
-  @media (max-width: 991px) {
-      .App .SidebarContainer {
-        left: calc(-1 * 240px);
-        left: calc(-1 * var(--AppSidebarWidth)); } }
-  .-sidebar-compact .App .SidebarContainer {
-      position: absolute; }
   .App .SidebarOverlay {
     position: absolute;
     left: 200vw;
@@ -11150,9 +11141,6 @@ pre {
             transition-duration: 0.3s;
     -webkit-transition-duration: var(--AppLayoutTransitionDuration);
             transition-duration: var(--AppLayoutTransitionDuration); }
-  @media (max-width: 991px) {
-      .App .FooterContainer {
-        left: 0; } }
   .App .ContentContainer {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -11177,9 +11165,6 @@ pre {
             transition-duration: 0.3s;
     -webkit-transition-duration: var(--AppLayoutTransitionDuration);
             transition-duration: var(--AppLayoutTransitionDuration); }
-  @media (max-width: 991px) {
-      .App .ContentContainer {
-        margin-left: 0; } }
   .App .Content {
     width: 100%; }
   .App .ContentBackground {
@@ -11190,50 +11175,74 @@ pre {
     bottom: 46px;
     bottom: var(--AppFooterHeight);
     z-index: -1; }
-  .App.-header-fixed .HeaderContainer {
-    position: fixed; }
-  .App.-sidebar-fixed .SidebarContainer {
-    position: fixed; }
-  .App.-sidebar-static .SidebarContainer {
-    position: absolute; }
-  .App.-footer-fixed .FooterContainer {
-    position: fixed; }
-  @media (min-width: 768px) {
-    .App.-sidebar-compact .HeaderContainer {
-      left: 70px;
-      left: var(--AppSidebarWidth-compact); } }
-  @media (min-width: 768px) {
-    .App.-sidebar-compact .SidebarContainer {
-      width: 70px;
-      width: var(--AppSidebarWidth-compact); } }
-  @media (min-width: 768px) and (max-width: 991px) {
-    .App.-sidebar-compact .SidebarContainer {
+  @media (max-width: 767px) {
+    .App .HeaderContainer {
+      left: 0; }
+    .App .SidebarContainer {
+      left: calc(-1 * 240px);
+      left: calc(-1 * var(--AppSidebarWidth)); }
+    .App .ContentContainer {
+      margin-left: 0; }
+    .App .FooterContainer {
+      left: calc(-1 * 240px);
+      left: calc(-1 * var(--AppSidebarWidth)); }
+    .App.-sidebar-open-mobile .SidebarContainer {
       left: 0; } }
-  @media (min-width: 768px) {
-    .App.-sidebar-compact .FooterContainer {
+  @media (min-width: 768px) and (max-width: 991px) {
+    .App .HeaderContainer {
+      left: 0; }
+    .App .SidebarContainer {
+      left: calc(-1 * 240px);
+      left: calc(-1 * var(--AppSidebarWidth)); }
+    .App .ContentContainer {
+      margin-left: 0; }
+    .App .FooterContainer {
+      left: calc(-1 * 240px);
+      left: calc(-1 * var(--AppSidebarWidth)); }
+    .App.-sidebar-compact-tablet .SidebarContainer {
+      left: calc(-1 * 70px);
+      left: calc(-1 * var(--AppSidebarWidth-compact));
+      width: 70px;
+      width: var(--AppSidebarWidth-compact); }
+    .App.-sidebar-open-tablet .SidebarContainer {
+      left: 0; }
+    .App.-sidebar-open-tablet.-sidebar-compact-tablet .HeaderContainer {
+      left: 70px;
+      left: var(--AppSidebarWidth-compact); }
+    .App.-sidebar-open-tablet.-sidebar-compact-tablet .SidebarContainer {
+      left: 0; }
+    .App.-sidebar-open-tablet.-sidebar-compact-tablet .ContentContainer {
+      margin-left: 70px;
+      margin-left: var(--AppSidebarWidth-compact); }
+    .App.-sidebar-open-tablet.-sidebar-compact-tablet .FooterContainer {
       left: 70px;
       left: var(--AppSidebarWidth-compact); } }
-  @media (min-width: 768px) {
-    .App.-sidebar-compact .ContentContainer {
+  @media (min-width: 992px) {
+    .App.-sidebar-compact-desktop .HeaderContainer {
+      left: 70px;
+      left: var(--AppSidebarWidth-compact); }
+    .App.-sidebar-compact-desktop .SidebarContainer {
+      width: 70px;
+      width: var(--AppSidebarWidth-compact); }
+    .App.-sidebar-compact-desktop .ContentContainer {
       margin-left: 70px;
-      margin-left: var(--AppSidebarWidth-compact); } }
-  @media (min-width: 992px) {
-    .App.-sidebar-compact.-sidebar-closed-desktop .SidebarContainer {
-      left: calc(-1 * 70px);
-      left: calc(-1 * var(--AppSidebarWidth-compact)); } }
-  @media (min-width: 992px) {
+      margin-left: var(--AppSidebarWidth-compact); }
+    .App.-sidebar-compact-desktop .FooterContainer {
+      left: 70px;
+      left: var(--AppSidebarWidth-compact); }
     .App.-sidebar-closed-desktop .HeaderContainer {
       left: 0; }
     .App.-sidebar-closed-desktop .SidebarContainer {
       left: calc(-1 * 240px);
       left: calc(-1 * var(--AppSidebarWidth)); }
+    .App.-sidebar-closed-desktop .ContentContainer {
+      margin-left: 0; }
     .App.-sidebar-closed-desktop .FooterContainer {
       left: 0; }
-    .App.-sidebar-closed-desktop .ContentContainer {
-      margin-left: 0; } }
-  @media (max-width: 991px) {
-    .App.-sidebar-open-mobile .SidebarContainer {
-      left: 0; }
+    .App.-sidebar-closed-desktop.-sidebar-compact-desktop .SidebarContainer {
+      left: calc(-1 * 70px);
+      left: calc(-1 * var(--AppSidebarWidth-compact)); } }
+  @media (max-width: 767px) {
     .App.-sidebar-open-mobile .SidebarOverlay {
       left: 0;
       opacity: 1; }
@@ -11242,61 +11251,34 @@ pre {
     .App.-sidebar-open-mobile .FooterContainer {
       -webkit-filter: blur(2px);
               filter: blur(2px); } }
-  @media (min-width: 768px) {
-    .App.-sidebar-compact.-sidebar-nav-open .SidebarContainer {
-      left: 0; }
-    .App.-sidebar-compact.-sidebar-nav-open .SidebarOverlay {
+  @media (min-width: 768px) and (max-width: 991px) {
+    .App.-sidebar-open-tablet:not(.-sidebar-compact-tablet) .SidebarOverlay {
       left: 0;
       opacity: 1; }
-    .App.-sidebar-compact.-sidebar-nav-open .HeaderContainer,
-    .App.-sidebar-compact.-sidebar-nav-open .ContentContainer,
-    .App.-sidebar-compact.-sidebar-nav-open .FooterContainer {
+    .App.-sidebar-open-tablet:not(.-sidebar-compact-tablet) .HeaderContainer,
+    .App.-sidebar-open-tablet:not(.-sidebar-compact-tablet) .ContentContainer,
+    .App.-sidebar-open-tablet:not(.-sidebar-compact-tablet) .FooterContainer {
       -webkit-filter: blur(2px);
               filter: blur(2px); } }
-  .-rtl .App .HeaderContainer {
-    left: 0;
-    right: 240px;
-    right: var(--AppSidebarWidth); }
-  @media (max-width: 991px) {
-      .-rtl .App .HeaderContainer {
-        right: 0; } }
-  .-rtl .App .SidebarContainer {
-    left: auto;
-    right: 0; }
-  @media (max-width: 991px) {
-      .-rtl .App .SidebarContainer {
-        left: auto;
-        right: calc(-1 * 240px);
-        right: calc(-1 * var(--AppSidebarWidth)); } }
-  .-rtl .App .FooterContainer {
-    left: 0;
-    right: 240px;
-    right: var(--AppSidebarWidth); }
-  @media (max-width: 991px) {
-      .-rtl .App .FooterContainer {
-        right: 0; } }
-  .-rtl .App .ContentContainer {
-    margin-left: 0;
-    margin-right: 240px;
-    margin-right: var(--AppSidebarWidth); }
-  @media (max-width: 991px) {
-      .-rtl .App .ContentContainer {
-        margin-right: 0; } }
-  @media (min-width: 992px) {
-    .-rtl .App.-sidebar-closed-desktop .HeaderContainer {
-      right: 0; }
-    .-rtl .App.-sidebar-closed-desktop .SidebarContainer {
-      right: calc(-1 * 240px);
-      right: calc(-1 * var(--AppSidebarWidth)); }
-    .-rtl .App.-sidebar-closed-desktop .FooterContainer {
-      right: 0; }
-    .-rtl .App.-sidebar-closed-desktop .ContentContainer {
-      margin-right: 0; } }
-  @media (max-width: 991px) {
-    .-rtl .App.-sidebar-open-mobile .SidebarContainer {
-      right: 0; }
-    .-rtl .App.-sidebar-open-mobile .SidebarOverlay {
-      right: 0; } }
+  @media (min-width: 768px) {
+    .App.-sidebar-compact-tablet.-sidebar-nav-open .SidebarOverlay, .App.-sidebar-compact-desktop.-sidebar-nav-open .SidebarOverlay {
+      left: 0;
+      opacity: 1; }
+    .App.-sidebar-compact-tablet.-sidebar-nav-open .HeaderContainer,
+    .App.-sidebar-compact-tablet.-sidebar-nav-open .ContentContainer,
+    .App.-sidebar-compact-tablet.-sidebar-nav-open .FooterContainer, .App.-sidebar-compact-desktop.-sidebar-nav-open .HeaderContainer,
+    .App.-sidebar-compact-desktop.-sidebar-nav-open .ContentContainer,
+    .App.-sidebar-compact-desktop.-sidebar-nav-open .FooterContainer {
+      -webkit-filter: blur(2px);
+              filter: blur(2px); } }
+  .App.-header-fixed .HeaderContainer {
+    position: fixed; }
+  .App.-sidebar-fixed .SidebarContainer {
+    position: fixed; }
+  .App.-sidebar-static .SidebarContainer {
+    position: absolute; }
+  .App.-footer-fixed .FooterContainer {
+    position: fixed; }
 .Header {
   width: 100%;
   display: -webkit-box;
@@ -11347,9 +11329,6 @@ pre {
   .-rtl .Header .ControlButton {
       margin-right: 0;
       margin-left: 5px; }
-  @media (min-width: 768px) {
-    .-sidebar-compact .Header #HeaderSidebarToggleButton {
-      display: none; } }
   .Header .ProjectNav {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -11489,7 +11468,7 @@ pre {
   /*----------  Sidebar Header  ----------*/
   /*----------  Sidebar Content  ----------*/
   /*----------  Sidebar Footer  ----------*/ }
-  @media (max-width: 991px) {
+  @media (max-width: 767px) {
     .Sidebar {
       -webkit-box-shadow: none;
               box-shadow: none; }
@@ -11499,11 +11478,14 @@ pre {
         -webkit-box-shadow: var(--SidebarShadow);
                 box-shadow: var(--SidebarShadow); } }
   @media (min-width: 768px) and (max-width: 991px) {
-    .-sidebar-compact .Sidebar {
-      -webkit-box-shadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
-              box-shadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
-      -webkit-box-shadow: var(--SidebarShadow);
-              box-shadow: var(--SidebarShadow); } }
+    .Sidebar {
+      -webkit-box-shadow: none;
+              box-shadow: none; }
+      .-sidebar-open-tablet .Sidebar {
+        -webkit-box-shadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
+                box-shadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
+        -webkit-box-shadow: var(--SidebarShadow);
+                box-shadow: var(--SidebarShadow); } }
   @media (min-width: 992px) {
     .-sidebar-closed-desktop .Sidebar {
       -webkit-box-shadow: none;
@@ -11551,8 +11533,11 @@ pre {
       -webkit-box-direction: reverse;
           -ms-flex-direction: row-reverse;
               flex-direction: row-reverse; }
-  @media (min-width: 768px) {
-      .-sidebar-compact .Sidebar .SidebarHeader {
+  @media (min-width: 768px) and (max-width: 991px) {
+      .-sidebar-compact-tablet .Sidebar .SidebarHeader {
+        padding-left: 11px; } }
+  @media (min-width: 992px) {
+      .-sidebar-compact-desktop .Sidebar .SidebarHeader {
         padding-left: 11px; } }
   .Sidebar .Logo {
     width: 38px;
@@ -11612,8 +11597,11 @@ pre {
       text-shadow: 0 0 2px rgba(0, 0, 0, 0.4); }
   .Sidebar .Title .Platform:hover {
         color: #fff; }
-  @media (min-width: 768px) {
-      .-sidebar-compact .Sidebar .Title {
+  @media (min-width: 768px) and (max-width: 991px) {
+      .-sidebar-compact-tablet .Sidebar .Title {
+        opacity: 0; } }
+  @media (min-width: 992px) {
+      .-sidebar-compact-desktop .Sidebar .Title {
         opacity: 0; } }
   .Sidebar .SidebarContent {
     -webkit-box-flex: 1;
@@ -11637,6 +11625,11 @@ pre {
       background-color: rgb(139, 195, 74);
       background-color: var(--colorPrimary);
       -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05); }
+  @media (max-width: 991px) {
+      .Sidebar .SidebarContent::-webkit-scrollbar-thumb {
+        background-color: rgb(139, 195, 74);
+        background-color: var(--colorPrimary);
+        -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05); } }
   .Sidebar .SidebarFooter {
     height: 46px;
     -ms-flex-negative: 0;
@@ -11728,10 +11721,13 @@ pre {
                 flex-grow: 1; }
   @media (max-width: 767px) {
           .Sidebar .SidebarFooter .SidebarFooterNav .LinkToggleCompact {
-            display: none;
-            background-color: red; } }
-  @media (min-width: 768px) {
-          .-sidebar-compact .Sidebar .SidebarFooter .SidebarFooterNav .LinkToggleCompact .Icon {
+            display: none; } }
+  @media (min-width: 768px) and (max-width: 991px) {
+          .-sidebar-compact-tablet:not(.-rtl) .Sidebar .SidebarFooter .SidebarFooterNav .LinkToggleCompact .Icon {
+            -webkit-transform: rotate(180deg);
+                    transform: rotate(180deg); } }
+  @media (min-width: 992px) {
+          .-sidebar-compact-desktop:not(.-rtl) .Sidebar .SidebarFooter .SidebarFooterNav .LinkToggleCompact .Icon {
             -webkit-transform: rotate(180deg);
                     transform: rotate(180deg); } }
 .SidebarNav {
@@ -11893,19 +11889,55 @@ pre {
   .-rtl .App:not(.-sidebar-compact) .SidebarNav nav nav nav nav .NavLink .Icon {
       left: auto;
       right: 44px; }
-.App.-sidebar-compact .SidebarContent {
-  overflow: visible; }
-
-@media (min-width: 768px) {
-  .App.-sidebar-compact .SidebarNav .CompactNavGroupName {
+.SidebarNav .CompactNavGroupName {
+  display: none;
+  color: rgb(79, 95, 111);
+  color: var(--colorText);
+  position: relative;
+  font-size: 1.1em;
+  white-space: nowrap;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding-right: 50px;
+  padding-left: 20px;
+  border-bottom: 1px solid rgb(215, 221, 228);
+  border-bottom: 1px solid var(--colorDivider);
+  margin-bottom: 0; }
+  .SidebarNav .CompactNavGroupName .DismissBtn {
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    right: 3px;
+    top: 7px;
+    position: absolute;
+    display: block;
+    margin-left: auto;
+    color: rgb(215, 221, 228);
+    color: var(--colorDivider);
+    text-align: center;
+    border-radius: 4px;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    font-size: 1.2em; }
+  .SidebarNav .CompactNavGroupName .DismissBtn .Icon {
+      display: inline-block;
+      position: static;
+      margin: 0; }
+  .SidebarNav .CompactNavGroupName .DismissBtn:hover {
+      color: rgb(139, 195, 74);
+      color: var(--colorPrimary); }
+  @media (min-width: 768px) and (max-width: 991px) {
+  .-sidebar-compact-tablet .SidebarNav .CompactNavGroupName {
     display: block; }
-  .App.-sidebar-compact .SidebarNav > .NavGroup {
+  .-sidebar-compact-tablet .SidebarNav > .NavGroup {
     width: 70px;
     width: var(--AppSidebarWidth-compact); }
-    .App.-sidebar-compact .SidebarNav > .NavGroup > .NavLink:after {
+    .-sidebar-compact-tablet .SidebarNav > .NavGroup > .NavLink:after {
       -webkit-transform: translate(0, -50%) !important;
               transform: translate(0, -50%) !important; }
-    .App.-sidebar-compact .SidebarNav > .NavGroup > .Nav {
+    .-sidebar-compact-tablet .SidebarNav > .NavGroup > .Nav {
       position: fixed;
       left: 70px;
       left: var(--AppSidebarWidth-compact);
@@ -11920,84 +11952,80 @@ pre {
       width: 240px;
       width: var(--AppSidebarWidth);
       border-radius: 0 6px 6px 0; }
-      .App.-sidebar-compact .SidebarNav > .NavGroup > .Nav .NavLink {
+      .-sidebar-compact-tablet .SidebarNav > .NavGroup > .Nav .NavLink {
         text-shadow: none;
         padding: 0 20px;
         color: rgb(139, 195, 74);
         color: var(--colorPrimary);
         height: 40px; }
-        .App.-sidebar-compact .SidebarNav > .NavGroup > .Nav .NavLink:hover {
+        .-sidebar-compact-tablet .SidebarNav > .NavGroup > .Nav .NavLink:hover {
           background-color: rgba(0, 0, 0, 0.03); }
-    .App.-sidebar-compact .SidebarNav > .NavGroup:before {
-      content: " ";
-      display: block;
-      width: 10px;
-      height: 30px;
-      position: absolute;
-      top: 8px;
-      right: -11px;
-      z-index: 999;
-      border: 15px solid transparent;
-      border-right-color: #fff;
-      opacity: 0;
-      -webkit-transition: opacity .3s ease;
-      transition: opacity .3s ease; }
-    .App.-sidebar-compact .SidebarNav > .NavGroup.-open:before {
+    .-sidebar-compact-tablet .SidebarNav > .NavGroup.-open:before {
       opacity: 1; }
-    .App.-sidebar-compact .SidebarNav > .NavGroup.-open > .NavLink:not(.-active) {
+    .-sidebar-compact-tablet .SidebarNav > .NavGroup.-open > .NavLink:not(.-active) {
       color: rgb(139, 195, 74);
       color: var(--colorPrimary); }
-      .App.-sidebar-compact .SidebarNav > .NavGroup.-open > .NavLink:not(.-active):after {
+      .-sidebar-compact-tablet .SidebarNav > .NavGroup.-open > .NavLink:not(.-active):after {
         color: inherit; }
-  .App.-sidebar-compact .SidebarNav > .NavLink,
-  .App.-sidebar-compact .SidebarNav > .NavGroup > .NavLink {
+  .-sidebar-compact-tablet .SidebarNav > .NavLink,
+  .-sidebar-compact-tablet .SidebarNav > .NavGroup > .NavLink {
     padding-right: 5px;
     overflow: hidden; }
-    .App.-sidebar-compact .SidebarNav > .NavLink:after,
-    .App.-sidebar-compact .SidebarNav > .NavGroup > .NavLink:after {
+    .-sidebar-compact-tablet .SidebarNav > .NavLink:after,
+    .-sidebar-compact-tablet .SidebarNav > .NavGroup > .NavLink:after {
       right: 7px; }
-    .App.-sidebar-compact .SidebarNav > .NavLink span,
-    .App.-sidebar-compact .SidebarNav > .NavGroup > .NavLink span {
-      opacity: 0; }
-  .App.-sidebar-compact .SidebarNav .CompactNavGroupName {
-    display: block;
-    color: rgb(79, 95, 111);
-    color: var(--colorText);
-    position: relative;
-    font-size: 1.1em;
-    white-space: nowrap;
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
-    padding-right: 50px;
-    padding-left: 20px;
-    border-bottom: 1px solid rgb(215, 221, 228);
-    border-bottom: 1px solid var(--colorDivider);
-    margin-bottom: 0; }
-    .App.-sidebar-compact .SidebarNav .CompactNavGroupName .DismissBtn {
-      padding: 0;
-      width: 36px;
-      height: 36px;
-      line-height: 36px;
-      right: 3px;
-      top: 7px;
-      position: absolute;
-      display: block;
-      margin-left: auto;
-      color: rgb(215, 221, 228);
-      color: var(--colorDivider);
-      text-align: center;
-      border-radius: 4px;
-      -webkit-transition: all .3s ease;
-      transition: all .3s ease;
-      font-size: 1.2em; }
-      .App.-sidebar-compact .SidebarNav .CompactNavGroupName .DismissBtn .Icon {
-        display: inline-block;
-        position: static;
-        margin: 0; }
-      .App.-sidebar-compact .SidebarNav .CompactNavGroupName .DismissBtn:hover {
+    .-sidebar-compact-tablet .SidebarNav > .NavLink span,
+    .-sidebar-compact-tablet .SidebarNav > .NavGroup > .NavLink span {
+      opacity: 0; } }
+  @media (min-width: 992px) {
+  .-sidebar-compact-desktop .SidebarNav .CompactNavGroupName {
+    display: block; }
+  .-sidebar-compact-desktop .SidebarNav > .NavGroup {
+    width: 70px;
+    width: var(--AppSidebarWidth-compact); }
+    .-sidebar-compact-desktop .SidebarNav > .NavGroup > .NavLink:after {
+      -webkit-transform: translate(0, -50%) !important;
+              transform: translate(0, -50%) !important; }
+    .-sidebar-compact-desktop .SidebarNav > .NavGroup > .Nav {
+      position: fixed;
+      left: 70px;
+      left: var(--AppSidebarWidth-compact);
+      margin-left: 5px;
+      bottom: 5px;
+      top: 5px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background-color: rgba(255, 255, 255, 0.97);
+      -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+              box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+      width: 240px;
+      width: var(--AppSidebarWidth);
+      border-radius: 0 6px 6px 0; }
+      .-sidebar-compact-desktop .SidebarNav > .NavGroup > .Nav .NavLink {
+        text-shadow: none;
+        padding: 0 20px;
         color: rgb(139, 195, 74);
-        color: var(--colorPrimary); } }
+        color: var(--colorPrimary);
+        height: 40px; }
+        .-sidebar-compact-desktop .SidebarNav > .NavGroup > .Nav .NavLink:hover {
+          background-color: rgba(0, 0, 0, 0.03); }
+    .-sidebar-compact-desktop .SidebarNav > .NavGroup.-open:before {
+      opacity: 1; }
+    .-sidebar-compact-desktop .SidebarNav > .NavGroup.-open > .NavLink:not(.-active) {
+      color: rgb(139, 195, 74);
+      color: var(--colorPrimary); }
+      .-sidebar-compact-desktop .SidebarNav > .NavGroup.-open > .NavLink:not(.-active):after {
+        color: inherit; }
+  .-sidebar-compact-desktop .SidebarNav > .NavLink,
+  .-sidebar-compact-desktop .SidebarNav > .NavGroup > .NavLink {
+    padding-right: 5px;
+    overflow: hidden; }
+    .-sidebar-compact-desktop .SidebarNav > .NavLink:after,
+    .-sidebar-compact-desktop .SidebarNav > .NavGroup > .NavLink:after {
+      right: 7px; }
+    .-sidebar-compact-desktop .SidebarNav > .NavLink span,
+    .-sidebar-compact-desktop .SidebarNav > .NavGroup > .NavLink span {
+      opacity: 0; } }
 .Footer {
   width: 100%;
   display: -webkit-box;

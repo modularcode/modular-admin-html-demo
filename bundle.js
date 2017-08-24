@@ -48016,6 +48016,22 @@ Util.getViewportWidth = function () {
   return Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 };
 
+Util.getViewportName = function () {
+  var viewportWidth = Util.getViewportWidth();
+
+  if (viewportWidth < 576) {
+    return 'xs';
+  } else if (viewportWidth >= 576 && viewportWidth < 768) {
+    return 'sm';
+  } else if (viewportWidth >= 768 && viewportWidth < 992) {
+    return 'md';
+  } else if (viewportWidth >= 992 && viewportWidth < 1200) {
+    return 'lg';
+  } else {
+    return 'xl';
+  }
+};
+
 Util.randomScalingFactor = function () {
   return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
 };
@@ -48298,21 +48314,27 @@ var _Util2 = _interopRequireDefault(_Util);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Sidebar = {};
+var Sidebar = {
+  refs: {
+    $App: null,
+    $SidebarNav: null,
+    $NavGroups: null,
+    $Navs: null
+  }
+};
 
 Sidebar.init = function () {
 
-  var $App = $('#App');
+  var vm = Sidebar;
 
-  // Close sidebar on overlay click
+  // Ref elements
 
-  $('#SidebarOverlay').on('click', Sidebar.close);
+  vm.refs.$App = $('#App');
+  vm.refs.$SidebarNav = $('#SidebarNav');
+  vm.refs.$NavGroups = vm.refs.$SidebarNav.find('.NavGroup');
+  vm.refs.$Navs = vm.refs.$SidebarNav.find('nav');
 
   // Navigation
-
-  var $SidebarNav = $('#SidebarNav');
-  var $NavGroups = $SidebarNav.find('.NavGroup');
-  var $Navs = $SidebarNav.find('nav');
 
   $('.NavGroup > a').on('click', function (e) {
     e.preventDefault();
@@ -48323,116 +48345,125 @@ Sidebar.init = function () {
     var $Nav = $NavGroup.find('> nav');
     var $NavParemts = $Nav.parents('nav');
 
-    $NavGroups.not($NavGroup).not($NavGroupParents).removeClass('-open');
+    vm.refs.$NavGroups.not($NavGroup).not($NavGroupParents).removeClass('-open');
+
     $NavGroup.toggleClass('-open');
 
-    if ($App.hasClass('-sidebar-compact')) {
-      $Navs.not($Nav).not($NavParemts).fadeOut('fast');
+    if (Sidebar.isCompact()) {
+      vm.refs.$Navs.not($Nav).not($NavParemts).fadeOut('fast');
       $Nav.fadeToggle('fast');
     } else {
-      $Navs.not($Nav).not($NavParemts).slideUp('fast');
+      vm.refs.$Navs.not($Nav).not($NavParemts).slideUp('fast');
       $Nav.slideToggle('fast');
     }
 
     // Check if sidebar has at least one open NavGroup
-    if ($SidebarNav.find('> .NavGroup.-open').length) {
-      $App.addClass('-sidebar-nav-open');
+    if (vm.refs.$SidebarNav.find('> .NavGroup.-open').length) {
+      vm.refs.$App.addClass('-sidebar-nav-open');
     } else {
-      $App.removeClass('-sidebar-nav-open');
+      vm.refs.$App.removeClass('-sidebar-nav-open');
     }
   });
+
+  // Sidebar overlay click handler
 
   $('#SidebarOverlay').on('click', function () {
-    if ($App.hasClass('-sidebar-compact')) {
-      $Navs.filter(':visible').fadeOut('fast');
-      $NavGroups.removeClass('-open');
-      $App.removeClass('-sidebar-nav-open');
+
+    if (Sidebar.isCompact()) {
+      vm.refs.$Navs.filter(':visible').fadeOut('fast');
+      vm.refs.$NavGroups.removeClass('-open');
+      vm.refs.$App.removeClass('-sidebar-nav-open');
+    } else {
+      Sidebar.close();
     }
   });
 
-  $SidebarNav.find('.DismissBtn').on('click', function (e) {
+  // Dismiss button click
+
+  vm.refs.$SidebarNav.find('.DismissBtn').on('click', function (e) {
 
     e.preventDefault();
 
-    if ($App.hasClass('-sidebar-compact')) {
-      $Navs.filter(':visible').fadeOut('fast');
-      $NavGroups.removeClass('-open');
-      $App.removeClass('-sidebar-nav-open');
+    if (Sidebar.isCompact()) {
+      vm.refs.$Navs.filter(':visible').fadeOut('fast');
+      vm.refs.$NavGroups.removeClass('-open');
+      vm.refs.$App.removeClass('-sidebar-nav-open');
     }
   });
 
-  // Toggle Compact
-
+  // Toggle compact click
   $('#SidebarToggleCompactLink').on('click', Sidebar.toggleCompact);
 };
 
+Sidebar.isCompact = function () {
+  var vm = Sidebar;
+
+  var viewportName = _Util2.default.getViewportName();
+
+  return (viewportName === 'md' || viewportName === 'lg' || viewportName === 'xl') && (vm.refs.$App.hasClass('-sidebar-compact-tablet') || vm.refs.$App.hasClass('-sidebar-compact-desktop'));
+};
+
 Sidebar.toggle = function () {
-  var $App = $('#App');
+  var vm = Sidebar;
 
-  var viewportWidth = _Util2.default.getViewportWidth();
+  var viewportName = _Util2.default.getViewportName();
 
-  // Current viewport is desktop
-  if (viewportWidth > 991) {
-    $App.toggleClass('-sidebar-closed-desktop');
+  if (viewportName === 'xs' || viewportName === 'sm') {
+    vm.refs.$App.toggleClass('-sidebar-open-mobile');
+  } else if (viewportName === 'md') {
+    vm.refs.$App.toggleClass('-sidebar-open-tablet');
+  } else if (viewportName === 'lg' || viewportName === 'xl') {
+    vm.refs.$App.toggleClass('-sidebar-closed-desktop');
   }
-  // Current viewport is mobile
-  else {
-      $App.toggleClass('-sidebar-open-mobile');
-    }
 
   notifyLayoutUpdate();
 };
 
 Sidebar.close = function () {
-  var $App = $('#App');
+  var vm = Sidebar;
 
-  var viewportWidth = _Util2.default.getViewportWidth();
+  var viewportName = _Util2.default.getViewportName();
 
-  // Current viewport is desktop
-  if (viewportWidth > 991) {
-    $App.addClass('-sidebar-closed-desktop');
+  if (viewportName === 'xs' || viewportName === 'sm') {
+    vm.refs.$App.removeClass('-sidebar-open-mobile');
+  } else if (viewportName === 'md') {
+    vm.refs.$App.removeClass('-sidebar-open-tablet');
+  } else if (viewportName === 'lg' || viewportName === 'xl') {
+    vm.refs.$App.removeClass('-sidebar-closed-desktop');
   }
-  // Current viewport is mobile
-  else {
-      $App.removeClass('-sidebar-open-mobile');
-    }
 
   notifyLayoutUpdate();
 };
 
 Sidebar.open = function () {
-  var $App = $('#App');
+  var vm = Sidebar;
 
-  var viewportWidth = _Util2.default.getViewportWidth();
+  var viewportName = _Util2.default.getViewportName();
 
-  // Current viewport is desktop
-  if (viewportWidth > 991) {
-    $App.removeClass('-sidebar-closed-desktop');
+  if (viewportName === 'xs' || viewportName === 'sm') {
+    vm.refs.$App.addClass('-sidebar-open-mobile');
+  } else if (viewportName === 'md') {
+    vm.refs.$App.addClass('-sidebar-open-tablet');
+  } else if (viewportName === 'lg' || viewportName === 'xl') {
+    vm.refs.$App.addClass('-sidebar-closed-desktop');
   }
-  // Current viewport is mobile
-  else {
-      $App.addClass('-sidebar-open-mobile');
-    }
 
   notifyLayoutUpdate();
 };
 
 Sidebar.toggleCompact = function (e) {
-
   e.preventDefault();
 
-  var $App = $('#App');
+  var vm = Sidebar;
 
-  $App.toggleClass('-sidebar-compact');
-  $App.addClass('-sidebar-open-mobile');
-  $App.removeClass('-sidebar-closed-desktop');
+  var viewportName = _Util2.default.getViewportName();
 
-  var viewportWidth = _Util2.default.getViewportWidth();
-
-  if (viewportWidth > 767 && $App.hasClass('-sidebar-compact')) {
-    $App.removeClass('-sidebar-open-mobile');
-  } else {
-    $App.addClass('-sidebar-open-mobile');
+  if (viewportName === 'xs' || viewportName === 'sm') {
+    return;
+  } else if (viewportName === 'md') {
+    vm.refs.$App.toggleClass('-sidebar-compact-tablet');
+  } else if (viewportName === 'lg' || viewportName === 'xl') {
+    vm.refs.$App.toggleClass('-sidebar-compact-desktop');
   }
 
   notifyLayoutUpdate();
