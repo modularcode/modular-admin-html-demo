@@ -11286,6 +11286,9 @@ pre {
     position: absolute; }
   .App.-footer-fixed .FooterContainer {
     position: fixed; }
+  @media (max-width: 767px) {
+    .App.-header-fixed-mobile .HeaderContainer {
+      position: fixed; } }
 .Header {
   width: 100%;
   display: -webkit-box;
@@ -11306,6 +11309,9 @@ pre {
   border-bottom: 1px solid #e0e0e0;
   border-bottom: var(--HeaderBorderBottom);
   padding: 0 20px; }
+  @media (max-width: 767px) {
+    .Header {
+      padding: 0 10px; } }
   .-rtl .Header {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
@@ -12060,6 +12066,10 @@ pre {
   text-align: center;
   margin-bottom: 40px;
   padding: 0 40px; }
+  @media (max-width: 767px) {
+    .Dashboard .Intro {
+      display: none;
+      padding: 10px; } }
   @media (min-width: 576px) and (max-width: 767px) {
     .Dashboard .Intro {
       margin-bottom: 25px; } }
