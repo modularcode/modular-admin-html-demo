@@ -11260,13 +11260,20 @@ pre {
     .App.-sidebar-open-tablet:not(.-sidebar-compact-tablet) .FooterContainer {
       -webkit-filter: blur(2px);
               filter: blur(2px); } }
-  @media (min-width: 768px) {
-    .App.-sidebar-compact-tablet.-sidebar-nav-open .SidebarOverlay, .App.-sidebar-compact-desktop.-sidebar-nav-open .SidebarOverlay {
+  @media (min-width: 768px) and (max-width: 991px) {
+    .App.-sidebar-compact-tablet.-sidebar-nav-open .SidebarOverlay {
       left: 0;
       opacity: 1; }
     .App.-sidebar-compact-tablet.-sidebar-nav-open .HeaderContainer,
     .App.-sidebar-compact-tablet.-sidebar-nav-open .ContentContainer,
-    .App.-sidebar-compact-tablet.-sidebar-nav-open .FooterContainer, .App.-sidebar-compact-desktop.-sidebar-nav-open .HeaderContainer,
+    .App.-sidebar-compact-tablet.-sidebar-nav-open .FooterContainer {
+      -webkit-filter: blur(2px);
+              filter: blur(2px); } }
+  @media (min-width: 992px) {
+    .App.-sidebar-compact-desktop.-sidebar-nav-open .SidebarOverlay {
+      left: 0;
+      opacity: 1; }
+    .App.-sidebar-compact-desktop.-sidebar-nav-open .HeaderContainer,
     .App.-sidebar-compact-desktop.-sidebar-nav-open .ContentContainer,
     .App.-sidebar-compact-desktop.-sidebar-nav-open .FooterContainer {
       -webkit-filter: blur(2px);

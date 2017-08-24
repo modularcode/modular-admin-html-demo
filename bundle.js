@@ -48392,7 +48392,16 @@ Sidebar.init = function () {
   });
 
   // Toggle compact click
-  $('#SidebarToggleCompactLink').on('click', Sidebar.toggleCompact);
+  $('#SidebarToggleCompactLink').on('click', function (e) {
+
+    e.preventDefault();
+
+    vm.refs.$Navs.filter(':visible').hide();
+    vm.refs.$NavGroups.removeClass('-open');
+    vm.refs.$App.removeClass('-sidebar-nav-open');
+
+    Sidebar.toggleCompact(e);
+  });
 };
 
 Sidebar.isCompact = function () {
@@ -48400,7 +48409,7 @@ Sidebar.isCompact = function () {
 
   var viewportName = _Util2.default.getViewportName();
 
-  return (viewportName === 'md' || viewportName === 'lg' || viewportName === 'xl') && (vm.refs.$App.hasClass('-sidebar-compact-tablet') || vm.refs.$App.hasClass('-sidebar-compact-desktop'));
+  return viewportName === 'md' && vm.refs.$App.hasClass('-sidebar-compact-tablet') || (viewportName === 'lg' || viewportName === 'xl') && vm.refs.$App.hasClass('-sidebar-compact-desktop');
 };
 
 Sidebar.toggle = function () {
@@ -48451,8 +48460,7 @@ Sidebar.open = function () {
   notifyLayoutUpdate();
 };
 
-Sidebar.toggleCompact = function (e) {
-  e.preventDefault();
+Sidebar.toggleCompact = function () {
 
   var vm = Sidebar;
 
