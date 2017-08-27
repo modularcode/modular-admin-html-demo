@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" id="main">
+<html class="no-js" lang="en" id="Main">
   <head>
     <base href="/modular-admin-html-demo/">
     <meta charset="utf-8">
@@ -11,7 +11,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i">
     <link rel="stylesheet" href="bundle.css"> </head>
   <body>
-    <div id="App" class="App -header-fixed-mobile -sidebar-compact-tablet -sidebar-open-tablet">
+    <div id="App" class="
+    App
+    -header-fixed
+    -header-fixed-mobile
+    -sidebar-compact-tablet
+    -sidebar-open-tablet
+  ">
       <div class="HeaderContainer">
         <header class="Header">
           <div class="HeaderBlock">
@@ -225,12 +231,15 @@
               </a>
             </nav>
           </div>
-          <footer class="SidebarFooter">
+          <footer id="SidebarFooter" class="SidebarFooter">
             <nav class="SidebarFooterNav">
-              <a href="#" class="NavLink LinkCustomize" data-toggle="tooltip" data-placement="auto" data-trigger="hover" title="Customize theme">
+              <a href="#" id="SidebarToggleCustomize" class="NavLink LinkCustomize" data-placement="top" data-trigger="hover" title="Customize theme">
                 <i class="pe-7s-edit Icon" aria-hidden="true"></i>
               </a>
-              <a href="" class="NavLink LinkToggleCompact" id="SidebarToggleCompactLink" data-toggle="tooltip" data-placement="auto" data-trigger="hover" title="Toggle sidebar">
+              <a href="" id="SidebarToggleHelpLink" class="NavLink LinkToggleHelp" data-placement="top" data-trigger="hover" title="Help">
+                <i class="pe-7s-help1 Icon" aria-hidden="true"></i>
+              </a>
+              <a href="" id="SidebarToggleCompactLink" class="NavLink LinkToggleCompact" data-placement="top" data-trigger="hover" title="Toggle sidebar">
                 <i class="pe-7s-angle-left Icon" aria-hidden="true"></i>
               </a>
             </nav>
@@ -246,7 +255,12 @@
         <footer class="Footer"> This Is Footer </footer>
       </div>
       <div class="CustomizeContainer">
-        <div class="Customize"> </div>
+        <div class="Customize">
+          <header class="CustomizeHeader">
+            <h4 class="Title"> Customize Theme </h4>
+          </header>
+          <div class="CustomizeContent"> </div>
+        </div>
       </div>
     </div>
     <script src="bundle.js"></script>
