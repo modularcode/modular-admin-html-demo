@@ -51975,8 +51975,7 @@ Sidebar.toggleCompact = function () {
     vm.refs.$App.toggleClass('-sidebar-compact-desktop');
   }
 
-  // Sidebar.destroyFooterTooltips();
-  // Sidebar.initFooterTooltips();
+  Sidebar.updateFooterTooltipsPlacement();
 
   notifyLayoutUpdate();
 };
@@ -52072,9 +52071,27 @@ Sidebar.initFooterTooltips = function () {
   });
 };
 
+Sidebar.updateFooterTooltipsPlacement = function () {
+  var vm = Sidebar;
+
+  var isRTL = vm.refs.$Main.hasClass('-rtl');
+
+  var placement = 'top';
+
+  if (Sidebar.isCompact()) {
+    placement = isRTL ? 'left' : 'right';
+  }
+
+  vm.refs.$FooterNavLinks.each(function () {
+
+    $(this).data('bs.tooltip').config.placement = placement;
+  });
+};
+
 Sidebar.destroyFooterTooltips = function () {
   var vm = Sidebar;
 
+  // Remove all tooltips
   vm.refs.$FooterNavLinks.each(function () {
     $(this).tooltip('dispose');
   });
