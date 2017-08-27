@@ -309,7 +309,7 @@ template {
   --AppCustomizeWidth: 280px;
   --AppLayoutTransitionDuration: 0.3s;
   --HeaderColorBg: white;
-  --HeaderShadow: 0px 0 20px rgba(72, 72, 72, 0.09);
+  --HeaderShadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
   --HeaderBorderBottom: 1px solid #e0e0e0;
   --FooterColorBg: white;
   --FooterShadow: none;
@@ -317,7 +317,7 @@ template {
   --SidebarColorText: rgba(255, 255, 255, 0.8);
   --SidebarBgImage: url("/modular-admin-html-demo/sidebar-bg-1.jpg");
   --SidebarBgImageOpacity: 1;
-  --SidebarShadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
+  --SidebarShadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
   --SidebarPaddingHorizontal: 20px;
   --SidebarNavColorText: rgba(255, 255, 255, 0.6);
   --SidebarNavColorText-open: rgba(255, 255, 255, 0.6);
@@ -333,7 +333,7 @@ template {
   --PagePaddingVertical-xl: 35px;
   --PagePaddingHorizontal-xl: 40px;
   --CardColorBg: #fff;
-  --CardShadow: 1px 1px 5px rgba(126, 142, 159, 0.1);
+  --CardShadow: 1px 1px 5px rgba(0, 0, 0, 0.03);
   --CardMarginBottom: 15px;
   --CardMarginBottom-sm: 15px;
   --CardMarginBottom-md: 20px;
@@ -476,8 +476,8 @@ a:hover {
 .Card {
   background-color: #fff;
   background-color: var(--CardColorBg);
-  -webkit-box-shadow: 1px 1px 5px rgba(126, 142, 159, 0.1);
-          box-shadow: 1px 1px 5px rgba(126, 142, 159, 0.1);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.03);
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.03);
   -webkit-box-shadow: var(--CardShadow);
           box-shadow: var(--CardShadow);
   width: 100%;
@@ -11395,8 +11395,8 @@ pre {
           justify-content: space-between;
   background-color: rgb(255, 255, 255);
   background-color: var(--HeaderColorBg);
-  -webkit-box-shadow: 0px 0 20px rgba(72, 72, 72, 0.09);
-          box-shadow: 0px 0 20px rgba(72, 72, 72, 0.09);
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: var(--HeaderShadow);
           box-shadow: var(--HeaderShadow);
   border-bottom: 1px solid #e0e0e0;
@@ -11565,8 +11565,8 @@ pre {
   color: var(--SidebarColorText);
   background-color: rgb(59, 76, 93);
   background-color: var(--SidebarColorBg);
-  -webkit-box-shadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
-          box-shadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
+  -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: var(--SidebarShadow);
           box-shadow: var(--SidebarShadow);
   -webkit-transition: background-color .3s ease;
@@ -11577,8 +11577,8 @@ pre {
       -webkit-box-shadow: none;
               box-shadow: none; }
       .-sidebar-open-mobile .Sidebar {
-        -webkit-box-shadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
-                box-shadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
+        -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+                box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
         -webkit-box-shadow: var(--SidebarShadow);
                 box-shadow: var(--SidebarShadow); } }
   @media (min-width: 768px) and (max-width: 991px) {
@@ -11586,8 +11586,8 @@ pre {
       -webkit-box-shadow: none;
               box-shadow: none; }
       .-sidebar-open-tablet .Sidebar {
-        -webkit-box-shadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
-                box-shadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
+        -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+                box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
         -webkit-box-shadow: var(--SidebarShadow);
                 box-shadow: var(--SidebarShadow); } }
   @media (min-width: 992px) {
@@ -12155,8 +12155,8 @@ pre {
       -ms-flex-direction: column;
           flex-direction: column; }
   .-customize-open .Customize {
-    -webkit-box-shadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
-            box-shadow: 0px 0px 30px rgba(72, 72, 72, 0.72);
+    -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: var(--SidebarShadow);
             box-shadow: var(--SidebarShadow); }
   .Customize .CustomizeHeader {
@@ -12182,9 +12182,10 @@ pre {
     border-bottom: 1px solid rgb(215, 221, 228);
     border-bottom: 1px solid var(--colorDivider); }
   .Customize .CustomizeHeader .Title {
-      color: rgb(215, 221, 228);
-      color: var(--colorDivider);
-      font-size: 18px; }
+      color: rgb(126, 142, 159);
+      color: var(--colorText-light);
+      font-size: 16px;
+      font-weight: 300; }
   .Customize .CustomizeContent {
     -webkit-box-flex: 1;
         -ms-flex: 1;
