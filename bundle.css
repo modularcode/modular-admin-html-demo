@@ -306,7 +306,7 @@ template {
   --AppSidebarWidth: 240px;
   --AppSidebarWidth-compact: 70px;
   --AppFooterHeight: 50px;
-  --AppCustomizeWidth: 250px;
+  --AppCustomizeWidth: 280px;
   --AppLayoutTransitionDuration: 0.3s;
   --HeaderColorBg: white;
   --HeaderShadow: 0px 0 20px rgba(72, 72, 72, 0.09);
@@ -11202,10 +11202,10 @@ pre {
     z-index: -1; }
   .App .CustomizeContainer {
     position: fixed;
-    left: calc(-1 * 250px);
+    left: calc(-1 * 280px);
     left: calc(-1 * var(--AppCustomizeWidth));
     top: 0;
-    width: 250px;
+    width: 280px;
     width: var(--AppCustomizeWidth);
     bottom: 0;
     z-index: 50;
@@ -11218,11 +11218,11 @@ pre {
     -webkit-transition-duration: var(--AppLayoutTransitionDuration);
             transition-duration: var(--AppLayoutTransitionDuration); }
   .App.-customize-open {
-    left: 250px;
+    left: 280px;
     left: var(--AppCustomizeWidth);
     overflow: hidden; }
   .App.-customize-open .SidebarContainer {
-      margin-left: 250px;
+      margin-left: 280px;
       margin-left: var(--AppCustomizeWidth); }
   .App.-customize-open .CustomizeContainer {
       left: 0; }
@@ -11332,44 +11332,52 @@ pre {
   .App.-header-fixed .HeaderContainer {
     position: fixed; }
   .App.-header-fixed.-customize-open .HeaderContainer {
-    left: calc(250px + 240px);
+    left: calc(280px + 240px);
     left: calc(var(--AppCustomizeWidth) + var(--AppSidebarWidth));
-    right: calc(-1 * 250px);
+    right: calc(-1 * 280px);
     right: calc(-1 * var(--AppCustomizeWidth)); }
+  @media (max-width: 767px) {
+    .App.-header-fixed.-customize-open .HeaderContainer {
+      left: 0;
+      right: 0; } }
   @media (min-width: 768px) and (max-width: 991px) {
     .App.-header-fixed.-customize-open .HeaderContainer {
-      left: 250px;
+      left: 280px;
       left: var(--AppCustomizeWidth); }
     .App.-header-fixed.-customize-open.-sidebar-compact-tablet.-sidebar-open-tablet .HeaderContainer {
-      left: calc(250px + 70px);
+      left: calc(280px + 70px);
       left: calc(var(--AppCustomizeWidth) + var(--AppSidebarWidth-compact)); } }
   @media (min-width: 992px) {
     .App.-header-fixed.-customize-open.-sidebar-compact-desktop:not(.-sidebar-closed-desktop) .HeaderContainer {
-      left: calc(250px + 70px);
+      left: calc(280px + 70px);
       left: calc(var(--AppCustomizeWidth) + var(--AppSidebarWidth-compact)); }
     .App.-header-fixed.-customize-open.-sidebar-closed-desktop .HeaderContainer {
-      left: 250px;
+      left: 280px;
       left: var(--AppCustomizeWidth); } }
   .App.-footer-fixed .FooterContainer {
     position: fixed; }
   .App.-footer-fixed.-customize-open .FooterContainer {
-    left: calc(250px + 240px);
+    left: calc(280px + 240px);
     left: calc(var(--AppCustomizeWidth) + var(--AppSidebarWidth));
-    right: calc(-1 * 250px);
+    right: calc(-1 * 280px);
     right: calc(-1 * var(--AppCustomizeWidth)); }
+  @media (max-width: 767px) {
+    .App.-footer-fixed.-customize-open .FooterContainer {
+      left: 0;
+      right: 0; } }
   @media (min-width: 768px) and (max-width: 991px) {
     .App.-footer-fixed.-customize-open .FooterContainer {
-      left: 250px;
+      left: 280px;
       left: var(--AppCustomizeWidth); }
     .App.-footer-fixed.-customize-open.-sidebar-compact-tablet.-sidebar-open-tablet .FooterContainer {
-      left: calc(250px + 70px);
+      left: calc(280px + 70px);
       left: calc(var(--AppCustomizeWidth) + var(--AppSidebarWidth-compact)); } }
   @media (min-width: 992px) {
     .App.-footer-fixed.-customize-open.-sidebar-compact-desktop:not(.-sidebar-closed-desktop) .FooterContainer {
-      left: calc(250px + 70px);
+      left: calc(280px + 70px);
       left: calc(var(--AppCustomizeWidth) + var(--AppSidebarWidth-compact)); }
     .App.-footer-fixed.-customize-open.-sidebar-closed-desktop .FooterContainer {
-      left: 250px;
+      left: 280px;
       left: var(--AppCustomizeWidth); } }
   @media (max-width: 767px) {
     .App.-header-fixed-mobile .HeaderContainer {
@@ -11834,7 +11842,7 @@ pre {
         right: auto;
         left: 10px; }
   .SidebarNav .NavGroup .NavGroup > a:after {
-      right: 12px; }
+      right: 11px; }
   .SidebarNav .NavGroup .Nav {
       overflow-x: visible;
       overflow-y: hidden;
@@ -11974,7 +11982,7 @@ pre {
     .-sidebar-compact-tablet .SidebarNav > .NavGroup > .NavLink span {
       opacity: 0; }
   .-sidebar-compact-tablet.-customize-open .SidebarNav > .NavGroup > .Nav {
-    left: calc(250px + 70px);
+    left: calc(280px + 70px);
     left: calc(var(--AppCustomizeWidth) + var(--AppSidebarWidth-compact)); } }
   @media (min-width: 992px) {
   .-sidebar-compact-desktop .SidebarNav .CompactNavGroupName {
@@ -12026,13 +12034,10 @@ pre {
     .-sidebar-compact-desktop .SidebarNav > .NavGroup > .NavLink span {
       opacity: 0; }
   .-sidebar-compact-desktop.-customize-open .SidebarNav > .NavGroup > .Nav {
-    left: calc(250px + 70px);
+    left: calc(280px + 70px);
     left: calc(var(--AppCustomizeWidth) + var(--AppSidebarWidth-compact)); } }
 .SidebarFooter {
   height: 50px; }
-  @media (max-width: 767px) {
-    .SidebarFooter {
-      display: none; } }
   @media (min-width: 768px) and (max-width: 991px) {
     .-sidebar-compact-tablet .SidebarFooter {
       height: auto; } }
@@ -12094,8 +12099,14 @@ pre {
     background-color: #fff;
     color: rgb(139, 195, 74);
     color: var(--colorPrimary); }
+  @media (max-width: 767px) {
+    .SidebarFooter .LinkToggleHelp {
+      display: none; } }
   .SidebarFooter .LinkToggleCompact {
     font-size: 42px; }
+  @media (max-width: 767px) {
+      .SidebarFooter .LinkToggleCompact {
+        display: none; } }
   @media (min-width: 768px) and (max-width: 991px) {
       .-sidebar-compact-tablet:not(.-rtl) .SidebarFooter .LinkToggleCompact .Icon {
         -webkit-transform: rotate(180deg);
