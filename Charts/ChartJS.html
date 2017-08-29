@@ -17,6 +17,8 @@
     -header-fixed-mobile
     -sidebar-compact-tablet
     -sidebar-open-tablet
+    -sidebar-compact-desktop
+    -customize-open
   ">
       <div class="HeaderContainer">
         <header class="Header">
@@ -114,11 +116,12 @@
                   <span> Items Manager </span>
                 </a>
                 <nav class="Nav">
-                  <h4 class="CompactNavGroupName"> Items Manager
-                    <a href="" class="DismissBtn">
+                  <div class="CompactNavGroupHeader">
+                    <h4 class="NavTitle"> Items Manager </h4>
+                    <a href="" class="Button -dismiss DismissBtn">
                       <i class="fa fa-times Icon"></i>
                     </a>
-                  </h4>
+                  </div>
                   <a href="" class="NavLink"> Items List </a>
                   <a href="" class="NavLink"> Items Editor </a>
                 </nav>
@@ -135,7 +138,7 @@
                 </a>
                 <nav class="Nav">
                   <h4 class="CompactNavGroupName"> Forms
-                    <a href="" class="DismissBtn">
+                    <a href="" class="Button ButtonDismiss DismissBtn">
                       <i class="fa fa-times Icon"></i>
                     </a>
                   </h4>
@@ -167,7 +170,7 @@
                 </a>
                 <nav class="Nav">
                   <h4 class="CompactNavGroupName"> Charts
-                    <a href="" class="DismissBtn">
+                    <a href="" class="Button ButtonDismiss DismissBtn">
                       <i class="fa fa-times Icon"></i>
                     </a>
                   </h4>
@@ -183,7 +186,7 @@
                 </a>
                 <nav class="Nav">
                   <h4 class="CompactNavGroupName"> UI Components
-                    <a href="" class="DismissBtn">
+                    <a href="" class="Button ButtonDismiss DismissBtn">
                       <i class="fa fa-times Icon"></i>
                     </a>
                   </h4>
@@ -200,7 +203,7 @@
                 </a>
                 <nav class="Nav">
                   <h4 class="CompactNavGroupName"> Multi Level Menu
-                    <a href="" class="DismissBtn">
+                    <a href="" class="Button ButtonDismiss DismissBtn">
                       <i class="fa fa-times Icon"></i>
                     </a>
                   </h4>
@@ -233,14 +236,14 @@
           </div>
           <footer id="SidebarFooter" class="SidebarFooter">
             <nav class="SidebarFooterNav">
-              <a href="#" id="SidebarToggleCustomize" class="NavLink LinkCustomize" data-placement="top" data-trigger="hover" title="Customize theme">
-                <i class="pe-7s-edit Icon" aria-hidden="true"></i>
+              <a href="" id="SidebarToggleCompactLink" class="NavLink LinkToggleCompact" data-placement="top" data-trigger="hover" title="Toggle sidebar">
+                <i class="pe-7s-angle-left Icon" aria-hidden="true"></i>
               </a>
               <a href="" id="SidebarToggleHelpLink" class="NavLink LinkToggleHelp" data-placement="top" data-trigger="hover" title="Help">
                 <i class="pe-7s-help1 Icon" aria-hidden="true"></i>
               </a>
-              <a href="" id="SidebarToggleCompactLink" class="NavLink LinkToggleCompact" data-placement="top" data-trigger="hover" title="Toggle sidebar">
-                <i class="pe-7s-angle-left Icon" aria-hidden="true"></i>
+              <a href="#" id="SidebarToggleCustomize" class="NavLink LinkCustomize" data-placement="top" data-trigger="hover" title="Customize theme">
+                <i class="pe-7s-edit Icon" aria-hidden="true"></i>
               </a>
             </nav>
           </footer>
@@ -262,6 +265,9 @@
         <div class="Customize">
           <header class="CustomizeHeader">
             <h4 class="Title"> Customize Theme </h4>
+            <a href="" id="CustomizeDismissButton" class="Button -dismiss CustomizeDismissButton">
+              <i class="fa fa-times Icon"></i>
+            </a>
           </header>
           <div class="CustomizeContent"> </div>
         </div>
