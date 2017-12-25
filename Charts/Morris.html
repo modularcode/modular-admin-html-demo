@@ -11,15 +11,23 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i">
     <link rel="stylesheet" href="bundle.css"> </head>
   <body>
+    <!--
+  You may use the following felper classes on the .App element
+
+  -dafault                    Default layout options
+
+  -header-fixed               Fixed header on all viewports
+  -header-fixed-mobile        Fixed header on all viewports
+  -sidebar-compact-tablet     Compact sidebar on tablet viewports
+  -sidebar-open-tablet        Open sidebar on tabler viewports
+  -sidebar-compact-desktop    Compact sidebar on desktop viewports
+  -customize-open             Open customize menu panel
+-->
     <div id="App" class="
     App
-    -header-fixed
-    -header-fixed-mobile
-    -sidebar-compact-tablet
-    -sidebar-open-tablet
   ">
       <div class="HeaderContainer">
-        <header class="Header">
+        <header class="AppHeader">
           <div class="HeaderBlock">
             <button class="Button -primary ControlButton" id="HeaderSidebarToggleButton">
               <i class="fa fa-bars Icon" aria-hidden="true"></i>
@@ -32,7 +40,7 @@
           </div>
           <div class="HeaderBlock">
             <nav class="ProjectNav">
-              <a href="https://github.com/modularcode/modular-admin-html/tree/v2-dev" class="Button -sm -default -outline -rounded">
+              <a href="" class="Button -sm -default -outline -rounded">
                 <i class="fa fa-github"></i>
                 <span>View on GitHub</span>
               </a>
@@ -81,7 +89,7 @@
         </header>
       </div>
       <div class="SidebarContainer">
-        <aside class="Sidebar">
+        <aside class="AppSidebar">
           <header class="SidebarHeader">
             <a class="LogoLink" href="/">
               <svg class="Logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 563.82 637.44">
@@ -104,11 +112,11 @@
           </header>
           <div class="SidebarContent">
             <nav class="SidebarNav" id="SidebarNav">
-              <a href="/" class="NavLink -active">
+              <a href="/" class="NavLink ">
                 <i class="fa fa-home NavIcon"></i>
                 <span> Dashboard </span>
               </a>
-              <div class="NavGroup">
+              <div class="NavGroup ">
                 <a href="" class="NavLink">
                   <i class="fa fa-th-large NavIcon"></i>
                   <span> Items Manager </span>
@@ -120,60 +128,93 @@
                       <i class="fa fa-times Icon"></i>
                     </a>
                   </div>
-                  <a href="" class="NavLink"> Items List </a>
-                  <a href="" class="NavLink"> Items Editor </a>
+                  <a href="/Items/List.html" class="NavLink "> Items List </a>
+                  <a href="/Items/Editor.html" class="NavLink "> Items Editor </a>
                 </nav>
               </div>
-              <a href="/" class="NavLink">
-                <i class="fa fa-file-text-o NavIcon"></i>
-                <span> Other Pages </span>
+              <a href="/" class="NavLink ">
+                <i class="fa fa-pie-chart NavIcon"></i>
+                <span> Metrics </span>
               </a>
+              <div class="NavGroup ">
+                <a href="/" class="NavLink">
+                  <i class="fa fa-file-text-o NavIcon"></i>
+                  <span> Other Pages </span>
+                </a>
+                <nav class="Nav">
+                  <div class="CompactNavGroupHeader">
+                    <h4 class="NavTitle"> Other Pages </h4>
+                    <a href="" class="Button -dismiss DismissBtn">
+                      <i class="fa fa-times Icon"></i>
+                    </a>
+                  </div>
+                  <a href="/Pages/Profile.html" class="NavLink"> Profile </a>
+                  <a href="/Pages/Settings.html" class="NavLink"> Settings </a>
+                  <a href="/Pages/Search.html" class="NavLink "> Search Results </a>
+                  <a href="/Pages/Error.html" class="NavLink "> Error Page </a>
+                  <a href="/Auth/Login.html" class="NavLink"> Login </a>
+                  <a href="/Auth/Signup.html" class="NavLink"> Signup </a>
+                  <a href="/Auth/Recover.html" class="NavLink"> Password Recover </a>
+                </nav>
+              </div>
               <div class="Divider"></div>
-              <div class="NavGroup">
+              <div class="NavGroup ">
                 <a href="" class="NavLink">
                   <i class="fa fa-edit NavIcon"></i>
                   <span> Forms </span>
                 </a>
                 <nav class="Nav">
-                  <h4 class="CompactNavGroupName"> Forms
-                    <a href="" class="Button ButtonDismiss DismissBtn">
+                  <div class="CompactNavGroupHeader">
+                    <h4 class="NavTitle"> Forms </h4>
+                    <a href="" class="Button -dismiss DismissBtn">
                       <i class="fa fa-times Icon"></i>
                     </a>
-                  </h4>
-                  <a href="" class="NavLink">
+                  </div>
+                  <a href="Forms.html" class="NavLink ">
                     <span> Basic Forms </span>
                   </a>
                 </nav>
               </div>
               <div class="NavGroup">
                 <a href="" class="NavLink">
-                  <i class="fa fa-table NavIcon"></i>
-                  <span> Tables </span>
+                  <i class="fa fa-list-ul NavIcon"></i>
+                  <span> Tables and Lists </span>
                 </a>
                 <nav class="Nav">
-                  <h4 class="CompactNavGroupName"> Tables
-                    <a href="" class="DismissBtn">
+                  <div class="CompactNavGroupHeader">
+                    <h4 class="NavTitle"> Tables and Lists </h4>
+                    <a href="" class="Button -dismiss DismissBtn">
                       <i class="fa fa-times Icon"></i>
                     </a>
-                  </h4>
+                  </div>
                   <a href="" class="NavLink">
                     <span> Basic Tables </span>
                   </a>
+                  <a href="" class="NavLink">
+                    <span> Responsive Tables </span>
+                  </a>
+                  <a href="" class="NavLink">
+                    <span> Responsive Lists </span>
+                  </a>
                 </nav>
               </div>
-              <div class="NavGroup">
-                <a href="" class="NavLink">
+              <div class="NavGroup -open">
+                <a href="" class="NavLink ">
                   <i class="fa fa-area-chart NavIcon"></i>
                   <span> Charts </span>
                 </a>
                 <nav class="Nav">
-                  <h4 class="CompactNavGroupName"> Charts
-                    <a href="" class="Button ButtonDismiss DismissBtn">
+                  <div class="CompactNavGroupHeader">
+                    <h4 class="NavTitle"> Charts </h4>
+                    <a href="" class="Button -dismiss DismissBtn">
                       <i class="fa fa-times Icon"></i>
                     </a>
-                  </h4>
-                  <a href="" class="NavLink">
-                    <span> Basic Tables </span>
+                  </div>
+                  <a href="Charts/ChartJS.html" class="NavLink ">
+                    <span> ChartJS </span>
+                  </a>
+                  <a href="Charts/Morris.html" class="NavLink -active">
+                    <span> Morris </span>
                   </a>
                 </nav>
               </div>
@@ -183,51 +224,57 @@
                   <span> UI Components </span>
                 </a>
                 <nav class="Nav">
-                  <h4 class="CompactNavGroupName"> UI Components
-                    <a href="" class="Button ButtonDismiss DismissBtn">
+                  <div class="CompactNavGroupHeader">
+                    <h4 class="NavTitle"> UI Components </h4>
+                    <a href="" class="Button -dismiss DismissBtn">
                       <i class="fa fa-times Icon"></i>
                     </a>
-                  </h4>
+                  </div>
                   <a href="" class="NavLink"> Color Palette </a>
+                  <a href="" class="NavLink"> Typography </a>
+                  <a href="" class="NavLink"> Grid </a>
+                  <a href="" class="NavLink"> Dropdowns </a>
+                  <a href="" class="NavLink"> Modals </a>
                   <a href="" class="NavLink"> Buttons </a>
-                  <a href="" class="NavLink"> Tables </a>
                   <a href="" class="NavLink"> Cards </a>
-                </nav>
-              </div>
-              <div class="NavGroup">
-                <a href="" class="NavLink">
-                  <i class="fa fa-sitemap NavIcon"></i>
-                  <span> Multi Level Menu </span>
-                </a>
-                <nav class="Nav">
-                  <h4 class="CompactNavGroupName"> Multi Level Menu
-                    <a href="" class="Button ButtonDismiss DismissBtn">
-                      <i class="fa fa-times Icon"></i>
-                    </a>
-                  </h4>
+                  <a href="/UIComponents/Utils.html" class="NavLink ">
+                    <span> Utils </span>
+                  </a>
                   <div class="NavGroup">
-                    <a href="" class="NavLink"> Level Two </a>
+                    <a href="" class="NavLink">
+                      <span> Multi Level Menu </span>
+                    </a>
                     <nav class="Nav">
+                      <h4 class="CompactNavGroupName"> Multi Level Menu
+                        <a href="" class="Button ButtonDismiss DismissBtn">
+                          <i class="fa fa-times Icon"></i>
+                        </a>
+                      </h4>
+                      <a href="" class="NavLink"> Level Two </a>
                       <div class="NavGroup">
-                        <a href="" class="NavLink"> Level Three </a>
+                        <a href="" class="NavLink"> Level Two </a>
                         <nav class="Nav">
-                          <a href="" class="NavLink"> Level Four </a>
-                          <a href="" class="NavLink"> Level Four </a>
+                          <div class="NavGroup">
+                            <a href="" class="NavLink"> Level Three </a>
+                            <nav class="Nav">
+                              <a href="" class="NavLink"> Level Four </a>
+                              <a href="" class="NavLink"> Level Four </a>
+                            </nav>
+                          </div>
+                          <a href="" class="NavLink"> Level Three </a>
                         </nav>
                       </div>
-                      <a href="" class="NavLink"> Level Three </a>
                     </nav>
                   </div>
-                  <a href="" class="NavLink"> Level Two </a>
                 </nav>
               </div>
               <div class="Divider"></div>
               <a href="/" class="NavLink">
-                <i class="fa fa-github-alt NavIcon"></i>
+                <i class="fa fa-github-alt NavIcon -color-light-green-400"></i>
                 <span> Theme Docs </span>
               </a>
               <a href="" class="NavLink">
-                <i class="fa fa-code NavIcon"></i>
+                <i class="fa fa-code NavIcon -color-light-blue-300"></i>
                 <span> Other Versions </span>
               </a>
             </nav>
@@ -240,27 +287,23 @@
               <a href="" id="SidebarToggleHelpLink" class="NavLink LinkToggleHelp" data-placement="top" data-trigger="hover" title="Help">
                 <i class="pe-7s-help1 Icon" aria-hidden="true"></i>
               </a>
-              <a href="#" id="SidebarToggleCustomize" class="NavLink LinkCustomize" data-placement="top" data-trigger="hover" title="Customize theme">
-                <i class="pe-7s-edit Icon" aria-hidden="true"></i>
-              </a>
             </nav>
           </footer>
         </aside>
       </div>
       <div class="SidebarOverlay" id="SidebarOverlay"></div>
-      <div class="ContentContainer ">
-        <div class="ContentBackground"></div>
-        <div class="Content">
+      <div class="ContentContainer Charts/Morris">
+        <div class="Content"> --- dirname: Charts # output dirname pagename: Charts/Morris layout: App/App.layout ---
           <article class="Page ChartsMorris">
             <h1>Morris Charts!</h1>
           </article>
         </div>
       </div>
       <div class="FooterContainer">
-        <footer class="Footer"> This Is Footer </footer>
+        <footer class="Footer AppFooter"> This Is Footer </footer>
       </div>
       <div class="CustomizeContainer">
-        <div class="Customize">
+        <div class="AppCustomize">
           <header class="CustomizeHeader">
             <h4 class="Title"> Customize Theme </h4>
             <a href="" id="CustomizeDismissButton" class="Button -dismiss CustomizeDismissButton">

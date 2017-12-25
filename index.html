@@ -11,15 +11,23 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i">
     <link rel="stylesheet" href="bundle.css"> </head>
   <body>
+    <!--
+  You may use the following felper classes on the .App element
+
+  -dafault                    Default layout options
+
+  -header-fixed               Fixed header on all viewports
+  -header-fixed-mobile        Fixed header on all viewports
+  -sidebar-compact-tablet     Compact sidebar on tablet viewports
+  -sidebar-open-tablet        Open sidebar on tabler viewports
+  -sidebar-compact-desktop    Compact sidebar on desktop viewports
+  -customize-open             Open customize menu panel
+-->
     <div id="App" class="
     App
-    -header-fixed
-    -header-fixed-mobile
-    -sidebar-compact-tablet
-    -sidebar-open-tablet
   ">
       <div class="HeaderContainer">
-        <header class="Header">
+        <header class="AppHeader">
           <div class="HeaderBlock">
             <button class="Button -primary ControlButton" id="HeaderSidebarToggleButton">
               <i class="fa fa-bars Icon" aria-hidden="true"></i>
@@ -32,7 +40,7 @@
           </div>
           <div class="HeaderBlock">
             <nav class="ProjectNav">
-              <a href="https://github.com/modularcode/modular-admin-html/tree/v2-dev" class="Button -sm -default -outline -rounded">
+              <a href="" class="Button -sm -default -outline -rounded">
                 <i class="fa fa-github"></i>
                 <span>View on GitHub</span>
               </a>
@@ -81,7 +89,7 @@
         </header>
       </div>
       <div class="SidebarContainer">
-        <aside class="Sidebar">
+        <aside class="AppSidebar">
           <header class="SidebarHeader">
             <a class="LogoLink" href="/">
               <svg class="Logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 563.82 637.44">
@@ -108,7 +116,7 @@
                 <i class="fa fa-home NavIcon"></i>
                 <span> Dashboard </span>
               </a>
-              <div class="NavGroup">
+              <div class="NavGroup ">
                 <a href="" class="NavLink">
                   <i class="fa fa-th-large NavIcon"></i>
                   <span> Items Manager </span>
@@ -120,60 +128,93 @@
                       <i class="fa fa-times Icon"></i>
                     </a>
                   </div>
-                  <a href="" class="NavLink"> Items List </a>
-                  <a href="" class="NavLink"> Items Editor </a>
+                  <a href="/Items/List.html" class="NavLink "> Items List </a>
+                  <a href="/Items/Editor.html" class="NavLink "> Items Editor </a>
                 </nav>
               </div>
-              <a href="/" class="NavLink">
-                <i class="fa fa-file-text-o NavIcon"></i>
-                <span> Other Pages </span>
+              <a href="/" class="NavLink ">
+                <i class="fa fa-pie-chart NavIcon"></i>
+                <span> Metrics </span>
               </a>
+              <div class="NavGroup ">
+                <a href="/" class="NavLink">
+                  <i class="fa fa-file-text-o NavIcon"></i>
+                  <span> Other Pages </span>
+                </a>
+                <nav class="Nav">
+                  <div class="CompactNavGroupHeader">
+                    <h4 class="NavTitle"> Other Pages </h4>
+                    <a href="" class="Button -dismiss DismissBtn">
+                      <i class="fa fa-times Icon"></i>
+                    </a>
+                  </div>
+                  <a href="/Pages/Profile.html" class="NavLink"> Profile </a>
+                  <a href="/Pages/Settings.html" class="NavLink"> Settings </a>
+                  <a href="/Pages/Search.html" class="NavLink "> Search Results </a>
+                  <a href="/Pages/Error.html" class="NavLink "> Error Page </a>
+                  <a href="/Auth/Login.html" class="NavLink"> Login </a>
+                  <a href="/Auth/Signup.html" class="NavLink"> Signup </a>
+                  <a href="/Auth/Recover.html" class="NavLink"> Password Recover </a>
+                </nav>
+              </div>
               <div class="Divider"></div>
-              <div class="NavGroup">
+              <div class="NavGroup ">
                 <a href="" class="NavLink">
                   <i class="fa fa-edit NavIcon"></i>
                   <span> Forms </span>
                 </a>
                 <nav class="Nav">
-                  <h4 class="CompactNavGroupName"> Forms
-                    <a href="" class="Button ButtonDismiss DismissBtn">
+                  <div class="CompactNavGroupHeader">
+                    <h4 class="NavTitle"> Forms </h4>
+                    <a href="" class="Button -dismiss DismissBtn">
                       <i class="fa fa-times Icon"></i>
                     </a>
-                  </h4>
-                  <a href="" class="NavLink">
+                  </div>
+                  <a href="Forms.html" class="NavLink ">
                     <span> Basic Forms </span>
                   </a>
                 </nav>
               </div>
               <div class="NavGroup">
                 <a href="" class="NavLink">
-                  <i class="fa fa-table NavIcon"></i>
-                  <span> Tables </span>
+                  <i class="fa fa-list-ul NavIcon"></i>
+                  <span> Tables and Lists </span>
                 </a>
                 <nav class="Nav">
-                  <h4 class="CompactNavGroupName"> Tables
-                    <a href="" class="DismissBtn">
+                  <div class="CompactNavGroupHeader">
+                    <h4 class="NavTitle"> Tables and Lists </h4>
+                    <a href="" class="Button -dismiss DismissBtn">
                       <i class="fa fa-times Icon"></i>
                     </a>
-                  </h4>
+                  </div>
                   <a href="" class="NavLink">
                     <span> Basic Tables </span>
                   </a>
+                  <a href="" class="NavLink">
+                    <span> Responsive Tables </span>
+                  </a>
+                  <a href="" class="NavLink">
+                    <span> Responsive Lists </span>
+                  </a>
                 </nav>
               </div>
-              <div class="NavGroup">
-                <a href="" class="NavLink">
+              <div class="NavGroup ">
+                <a href="" class="NavLink ">
                   <i class="fa fa-area-chart NavIcon"></i>
                   <span> Charts </span>
                 </a>
                 <nav class="Nav">
-                  <h4 class="CompactNavGroupName"> Charts
-                    <a href="" class="Button ButtonDismiss DismissBtn">
+                  <div class="CompactNavGroupHeader">
+                    <h4 class="NavTitle"> Charts </h4>
+                    <a href="" class="Button -dismiss DismissBtn">
                       <i class="fa fa-times Icon"></i>
                     </a>
-                  </h4>
-                  <a href="" class="NavLink">
-                    <span> Basic Tables </span>
+                  </div>
+                  <a href="Charts/ChartJS.html" class="NavLink ">
+                    <span> ChartJS </span>
+                  </a>
+                  <a href="Charts/Morris.html" class="NavLink ">
+                    <span> Morris </span>
                   </a>
                 </nav>
               </div>
@@ -183,51 +224,57 @@
                   <span> UI Components </span>
                 </a>
                 <nav class="Nav">
-                  <h4 class="CompactNavGroupName"> UI Components
-                    <a href="" class="Button ButtonDismiss DismissBtn">
+                  <div class="CompactNavGroupHeader">
+                    <h4 class="NavTitle"> UI Components </h4>
+                    <a href="" class="Button -dismiss DismissBtn">
                       <i class="fa fa-times Icon"></i>
                     </a>
-                  </h4>
+                  </div>
                   <a href="" class="NavLink"> Color Palette </a>
+                  <a href="" class="NavLink"> Typography </a>
+                  <a href="" class="NavLink"> Grid </a>
+                  <a href="" class="NavLink"> Dropdowns </a>
+                  <a href="" class="NavLink"> Modals </a>
                   <a href="" class="NavLink"> Buttons </a>
-                  <a href="" class="NavLink"> Tables </a>
                   <a href="" class="NavLink"> Cards </a>
-                </nav>
-              </div>
-              <div class="NavGroup">
-                <a href="" class="NavLink">
-                  <i class="fa fa-sitemap NavIcon"></i>
-                  <span> Multi Level Menu </span>
-                </a>
-                <nav class="Nav">
-                  <h4 class="CompactNavGroupName"> Multi Level Menu
-                    <a href="" class="Button ButtonDismiss DismissBtn">
-                      <i class="fa fa-times Icon"></i>
-                    </a>
-                  </h4>
+                  <a href="/UIComponents/Utils.html" class="NavLink ">
+                    <span> Utils </span>
+                  </a>
                   <div class="NavGroup">
-                    <a href="" class="NavLink"> Level Two </a>
+                    <a href="" class="NavLink">
+                      <span> Multi Level Menu </span>
+                    </a>
                     <nav class="Nav">
+                      <h4 class="CompactNavGroupName"> Multi Level Menu
+                        <a href="" class="Button ButtonDismiss DismissBtn">
+                          <i class="fa fa-times Icon"></i>
+                        </a>
+                      </h4>
+                      <a href="" class="NavLink"> Level Two </a>
                       <div class="NavGroup">
-                        <a href="" class="NavLink"> Level Three </a>
+                        <a href="" class="NavLink"> Level Two </a>
                         <nav class="Nav">
-                          <a href="" class="NavLink"> Level Four </a>
-                          <a href="" class="NavLink"> Level Four </a>
+                          <div class="NavGroup">
+                            <a href="" class="NavLink"> Level Three </a>
+                            <nav class="Nav">
+                              <a href="" class="NavLink"> Level Four </a>
+                              <a href="" class="NavLink"> Level Four </a>
+                            </nav>
+                          </div>
+                          <a href="" class="NavLink"> Level Three </a>
                         </nav>
                       </div>
-                      <a href="" class="NavLink"> Level Three </a>
                     </nav>
                   </div>
-                  <a href="" class="NavLink"> Level Two </a>
                 </nav>
               </div>
               <div class="Divider"></div>
               <a href="/" class="NavLink">
-                <i class="fa fa-github-alt NavIcon"></i>
+                <i class="fa fa-github-alt NavIcon -color-light-green-400"></i>
                 <span> Theme Docs </span>
               </a>
               <a href="" class="NavLink">
-                <i class="fa fa-code NavIcon"></i>
+                <i class="fa fa-code NavIcon -color-light-blue-300"></i>
                 <span> Other Versions </span>
               </a>
             </nav>
@@ -240,599 +287,346 @@
               <a href="" id="SidebarToggleHelpLink" class="NavLink LinkToggleHelp" data-placement="top" data-trigger="hover" title="Help">
                 <i class="pe-7s-help1 Icon" aria-hidden="true"></i>
               </a>
-              <a href="#" id="SidebarToggleCustomize" class="NavLink LinkCustomize" data-placement="top" data-trigger="hover" title="Customize theme">
-                <i class="pe-7s-edit Icon" aria-hidden="true"></i>
-              </a>
             </nav>
           </footer>
         </aside>
       </div>
       <div class="SidebarOverlay" id="SidebarOverlay"></div>
-      <div class="ContentContainer ">
-        <div class="ContentBackground"></div>
+      <div class="ContentContainer Dashboard">
         <div class="Content">
           <article class="Page Dashboard">
-            <div class="Intro">
-              <h1 class="Title"> Welcome to ModularAdmin 2! </h1>
-              <p class="Description"> ModularAdmin is an open source dashboard theme built with modular components.
-                <a href="">
-                  <i class="fa fa-book"></i> Read The Docs</a>. </p>
-            </div>
-            <div class="row -row-compact-sm -row-compact-md -row-compact-lg">
-              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-5 -sameheight">
-                <div class="Card DashboardStats">
-                  <div class="CardBlock">
-                    <div class="TitleBlock">
-                      <h4 class="Title">Stats</h4>
-                      <p class="TitleDescription"> Website metrics for
-                        <a href="https://github.com/modularcode/modular-admin-html" target="_blank">your awesome project</a>
-                      </p>
-                    </div>
-                    <div class="row -row-compact -row-minimal-lg StatsRow">
-                      <div class="col-xs-12 col-sm-6 StatCol">
-                        <div class="StatGroup">
-                          <div class="Stat">
-                            <div class="Icon">
-                              <i class="pe-7s-cart"></i>
+            <div class="PageContainer">
+              <div class="Intro">
+                <h1 class="Title"> Welcome to ModularAdmin 2! </h1>
+                <p class="Description"> ModularAdmin is an open source dashboard theme built with modular components.
+                  <a href="">
+                    <i class="fa fa-book"></i> Read The Docs</a>. </p>
+              </div>
+              <div class="row -row-compact-sm -row-compact-md -row-compact-lg">
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-5 -sameheight">
+                  <div class="Card DashboardStats">
+                    <div class="CardBlock">
+                      <div class="TitleBlock">
+                        <h4 class="Title">Stats</h4>
+                        <p class="TitleDescription"> Website metrics for
+                          <a href="https://github.com/modularcode/modular-admin-html" target="_blank">your awesome project</a>
+                        </p>
+                      </div>
+                      <div class="row -row-compact -row-minimal-lg StatsRow">
+                        <div class="col-xs-12 col-sm-6 StatCol">
+                          <div class="StatGroup">
+                            <div class="Stat">
+                              <div class="Icon">
+                                <i class="pe-7s-cart"></i>
+                              </div>
+                              <div class="StatContent">
+                                <div class="StatValue"> 5407 </div>
+                                <div class="StatName"> Active items </div>
+                              </div>
                             </div>
-                            <div class="StatContent">
-                              <div class="StatValue"> 5407 </div>
-                              <div class="StatName"> Active items </div>
+                            <div class="Progress -sm">
+                              <div class="Bar -bg-light-green-300" style="width: 75%;"></div>
                             </div>
-                          </div>
-                          <div class="Progress -sm">
-                            <div class="Bar -bg-light-green-300" style="width: 75%;"></div>
                           </div>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6 StatCol">
-                        <div class="StatGroup">
-                          <div class="Stat">
-                            <div class="Icon">
-                              <i class="pe-7s-credit"></i>
+                        <div class="col-xs-12 col-sm-6 StatCol">
+                          <div class="StatGroup">
+                            <div class="Stat">
+                              <div class="Icon">
+                                <i class="pe-7s-credit"></i>
+                              </div>
+                              <div class="StatContent">
+                                <div class="StatValue"> 78464 </div>
+                                <div class="StatName"> Items sold </div>
+                              </div>
                             </div>
-                            <div class="StatContent">
-                              <div class="StatValue"> 78464 </div>
-                              <div class="StatName"> Items sold </div>
+                            <div class="Progress -sm">
+                              <div class="Bar -bg-light-blue" style="width: 25%;"></div>
                             </div>
-                          </div>
-                          <div class="Progress -sm">
-                            <div class="Bar -bg-light-blue" style="width: 25%;"></div>
                           </div>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6 StatCol">
-                        <div class="StatGroup">
-                          <div class="Stat">
-                            <div class="Icon">
-                              <i class="pe-7s-cash"></i>
+                        <div class="col-xs-12 col-sm-6 StatCol">
+                          <div class="StatGroup">
+                            <div class="Stat">
+                              <div class="Icon">
+                                <i class="pe-7s-cash"></i>
+                              </div>
+                              <div class="StatContent">
+                                <div class="StatValue"> $80.560 </div>
+                                <div class="StatName"> Monthly income </div>
+                              </div>
                             </div>
-                            <div class="StatContent">
-                              <div class="StatValue"> $80.560 </div>
-                              <div class="StatName"> Monthly income </div>
+                            <div class="Progress -sm">
+                              <div class="Bar -bg-orange" style="width: 60%;"></div>
                             </div>
-                          </div>
-                          <div class="Progress -sm">
-                            <div class="Bar -bg-orange" style="width: 60%;"></div>
                           </div>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6 StatCol">
-                        <div class="StatGroup">
-                          <div class="Stat">
-                            <div class="Icon">
-                              <i class="pe-7s-users"></i>
+                        <div class="col-xs-12 col-sm-6 StatCol">
+                          <div class="StatGroup">
+                            <div class="Stat">
+                              <div class="Icon">
+                                <i class="pe-7s-users"></i>
+                              </div>
+                              <div class="StatContent">
+                                <div class="StatValue"> 359 </div>
+                                <div class="StatName"> Total users </div>
+                              </div>
                             </div>
-                            <div class="StatContent">
-                              <div class="StatValue"> 359 </div>
-                              <div class="StatName"> Total users </div>
+                            <div class="Progress -sm">
+                              <div class="Bar -bg-cyan" style="width: 34%;"></div>
                             </div>
-                          </div>
-                          <div class="Progress -sm">
-                            <div class="Bar -bg-cyan" style="width: 34%;"></div>
                           </div>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6 StatCol">
-                        <div class="StatGroup">
-                          <div class="Stat">
-                            <div class="Icon">
-                              <i class="pe-7s-check"></i>
+                        <div class="col-xs-12 col-sm-6 StatCol">
+                          <div class="StatGroup">
+                            <div class="Stat">
+                              <div class="Icon">
+                                <i class="pe-7s-check"></i>
+                              </div>
+                              <div class="StatContent">
+                                <div class="StatValue"> 59 </div>
+                                <div class="StatName"> Tickets closed </div>
+                              </div>
                             </div>
-                            <div class="StatContent">
-                              <div class="StatValue"> 59 </div>
-                              <div class="StatName"> Tickets closed </div>
+                            <div class="Progress -sm">
+                              <div class="Bar -bg-purple" style="width: 49%;"></div>
                             </div>
-                          </div>
-                          <div class="Progress -sm">
-                            <div class="Bar -bg-purple" style="width: 49%;"></div>
                           </div>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6 StatCol">
-                        <div class="StatGroup">
-                          <div class="Stat">
-                            <div class="Icon">
-                              <i class="pe-7s-piggy"></i>
+                        <div class="col-xs-12 col-sm-6 StatCol">
+                          <div class="StatGroup">
+                            <div class="Stat">
+                              <div class="Icon">
+                                <i class="pe-7s-piggy"></i>
+                              </div>
+                              <div class="StatContent">
+                                <div class="StatValue"> $780.064 </div>
+                                <div class="StatName"> Total income </div>
+                              </div>
                             </div>
-                            <div class="StatContent">
-                              <div class="StatValue"> $780.064 </div>
-                              <div class="StatName"> Total income </div>
+                            <div class="Progress -sm">
+                              <div class="Bar -bg-amber" style="width: 15%;"></div>
                             </div>
-                          </div>
-                          <div class="Progress -sm">
-                            <div class="Bar -bg-amber" style="width: 15%;"></div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-7 -sameheight">
-                <div class="Card DashboardHistory">
-                  <div class="CardHeader -bordered -sm">
-                    <div class="HeaderBlock">
-                      <h4 class="Title">History</h4>
-                    </div>
-                    <ul class="TabNav">
-                      <li class="TabNavItem -active">
-                        <a href="#DashboardHistoryAudienceTab">
-                          <i class="pe-7s-users Icon"></i> Audience </a>
-                      </li>
-                      <li class="TabNavItem">
-                        <a href="#DashboardHistoryDownloadsTab">
-                          <i class="pe-7s-graph1 Icon"></i> Downloads </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="CardBlock">
-                    <div class="TabContent" id="DashboardHistoryTabContent">
-                      <div class="TabPane -active" id="DashboardHistoryAudienceTab">
-                        <p class="TitleDescription"> Audience history last 7 days </p>
-                        <div id="DashboardHistoryAudienceChart"></div>
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-7 -sameheight">
+                  <div class="Card DashboardHistory">
+                    <div class="CardHeader -bordered -sm">
+                      <div class="HeaderBlock">
+                        <h4 class="Title">History</h4>
                       </div>
-                      <div class="TabPane" id="DashboardHistoryDownloadsTab">
-                        <p class="TitleDescription"> Number of downloads last 10 days </p>
-                        <div id="DashboardHistoryDownloadsChart"></div>
+                      <ul class="TabNav">
+                        <li class="TabNavItem -active">
+                          <a href="#DashboardHistoryAudienceTab">
+                            <i class="pe-7s-users Icon"></i> Audience </a>
+                        </li>
+                        <li class="TabNavItem">
+                          <a href="#DashboardHistoryDownloadsTab">
+                            <i class="pe-7s-graph1 Icon"></i> Downloads </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="CardBlock">
+                      <div class="TabContent" id="DashboardHistoryTabContent">
+                        <div class="TabPane -active" id="DashboardHistoryAudienceTab">
+                          <p class="TitleDescription"> Audience history last 7 days </p>
+                          <div id="DashboardHistoryAudienceChart"></div>
+                        </div>
+                        <div class="TabPane" id="DashboardHistoryDownloadsTab">
+                          <p class="TitleDescription"> Number of downloads last 10 days </p>
+                          <div id="DashboardHistoryDownloadsChart"></div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-xl-8 -sameheight">
-                <div class="Card Items" id="DashboardItems">
-                  <div class="CardHeader  -bordered -sm">
-                    <div class="HeaderBlock">
-                      <h4 class="Title"> Recent Items </h4>
-                    </div>
-                  </div>
-                  <div class="ItemList -striped">
-                    <div class="ListHeader -hidden-xs -hidden-sm">
-                      <div class="
-                ItemCol
-                -size-auto
-      
-                ColImg
-              ">
-                        <div class="Img"></div>
-                      </div>
-                      <div class="
-                ItemCol
-                -rel-size-6
-      
-                ColTitle
-              "> Name </div>
-                      <div class="
-                ItemCol
-                -rel-size-2
-                -size-xs-12
-                -rel-size-xs-12
-      
-                ColSales
-              "> Sales </div>
-                      <div class="
-                ItemCol
-                -rel-size-2
-                -size-xs-12
-      
-                ColStats
-              "> Stats </div>
-                      <div class="
-                ItemCol
-                -rel-size-2
-                -size-xs-12
-      
-                ColDate
-              "> Published </div>
-                    </div>
-                    <div class="ListContent">
-                      <div class="Item">
-                        <div class="
-                    ItemCol
-                    -size-auto
-      
-                    ColImg
-                  ">
-                          <div class="Img" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg)"> </div>
-                        </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-6
-                    -order-sm--2
-      
-                    ColTitle
-                  ">
-                          <div class="Value">
-                            <a href=""> LG Stylo 3 - Prepaid - Carrier Locked - Virgin Mobile </a>
-                          </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                    -visible-sm
-                    -order-sm--1
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColSales
-                  ">
-                          <div class="Label -visible-xs"> Sales </div>
-                          <div class="Value"> 4958 </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColStats
-                  ">
-                          <div class="Label -visible-xs"> Stats </div>
-                          <div class="Value Stats" data-type="bar"> </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColDate
-                  ">
-                          <div class="Label -visible-xs"> Date </div>
-                          <div class="Value"> 21 SEP 10:45 </div>
-                        </div>
-                      </div>
-                      <div class="Item">
-                        <div class="
-                    ItemCol
-                    -size-auto
-      
-                    ColImg
-                  ">
-                          <div class="Img" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/_everaldo/128.jpg)"> </div>
-                        </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-6
-                    -order-sm--2
-      
-                    ColTitle
-                  ">
-                          <div class="Value">
-                            <a href=""> DJI Spark Palm launch, Intelligent Portable Mini Drone, Alpine White </a>
-                          </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                    -visible-sm
-                    -order-sm--1
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColSales
-                  ">
-                          <div class="Label -visible-xs"> Sales </div>
-                          <div class="Value"> 192 </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColStats
-                  ">
-                          <div class="Label -visible-xs"> Stats </div>
-                          <div class="Value Stats" data-type="bar"> </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColDate
-                  ">
-                          <div class="Label -visible-xs"> Date </div>
-                          <div class="Value"> 21 SEP 10:40 </div>
-                        </div>
-                      </div>
-                      <div class="Item">
-                        <div class="
-                    ItemCol
-                    -size-auto
-      
-                    ColImg
-                  ">
-                          <div class="Img" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/eduardo_olv/128.jpg)"> </div>
-                        </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-6
-                    -order-sm--2
-      
-                    ColTitle
-                  ">
-                          <div class="Value">
-                            <a href=""> Simple Mobile Alcatel Pixi Glory 4G LTE Prepaid </a>
-                          </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                    -visible-sm
-                    -order-sm--1
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColSales
-                  ">
-                          <div class="Label -visible-xs"> Sales </div>
-                          <div class="Value"> 2143 </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColStats
-                  ">
-                          <div class="Label -visible-xs"> Stats </div>
-                          <div class="Value Stats" data-type="bar"> </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColDate
-                  ">
-                          <div class="Label -visible-xs"> Date </div>
-                          <div class="Value"> 20 SEP 18:14 </div>
-                        </div>
-                      </div>
-                      <div class="Item">
-                        <div class="
-                    ItemCol
-                    -size-auto
-      
-                    ColImg
-                  ">
-                          <div class="Img" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/why_this/128.jpg)"> </div>
-                        </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-6
-                    -order-sm--2
-      
-                    ColTitle
-                  ">
-                          <div class="Value">
-                            <a href=""> Samsung Electronics UN55MU7600 Curved 55-Inch 4K </a>
-                          </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                    -visible-sm
-                    -order-sm--1
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColSales
-                  ">
-                          <div class="Label -visible-xs"> Sales </div>
-                          <div class="Value"> 124 </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColStats
-                  ">
-                          <div class="Label -visible-xs"> Stats </div>
-                          <div class="Value Stats" data-type="bar"> </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColDate
-                  ">
-                          <div class="Label -visible-xs"> Date </div>
-                          <div class="Value"> 20 SEP 15:37 </div>
-                        </div>
-                      </div>
-                      <div class="Item">
-                        <div class="
-                    ItemCol
-                    -size-auto
-      
-                    ColImg
-                  ">
-                          <div class="Img" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/w7download/128.jpg)"> </div>
-                        </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-6
-                    -order-sm--2
-      
-                    ColTitle
-                  ">
-                          <div class="Value">
-                            <a href=""> LG B7A Series 65&quot; OLED 4K HDR Smart TV 2017 Model </a>
-                          </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                    -visible-sm
-                    -order-sm--1
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColSales
-                  ">
-                          <div class="Label -visible-xs"> Sales </div>
-                          <div class="Value"> 10214 </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColStats
-                  ">
-                          <div class="Label -visible-xs"> Stats </div>
-                          <div class="Value Stats" data-type="bar"> </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColDate
-                  ">
-                          <div class="Label -visible-xs"> Date </div>
-                          <div class="Value"> 20 SEP 13:42 </div>
-                        </div>
-                      </div>
-                      <div class="Item">
-                        <div class="
-                    ItemCol
-                    -size-auto
-      
-                    ColImg
-                  ">
-                          <div class="Img" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/pankogut/128.jpg)"> </div>
-                        </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-6
-                    -order-sm--2
-      
-                    ColTitle
-                  ">
-                          <div class="Value">
-                            <a href=""> Hard EVA Travel Black Case for DJI Spark Palm launch Intelligent Portable Mini Drone </a>
-                          </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                    -visible-sm
-                    -order-sm--1
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColSales
-                  ">
-                          <div class="Label -visible-xs"> Sales </div>
-                          <div class="Value"> 3217 </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColStats
-                  ">
-                          <div class="Label -visible-xs"> Stats </div>
-                          <div class="Value Stats" data-type="bar"> </div>
-                        </div>
-                        <div class="
-                    Divider
-                    -visible-xs
-                  "> </div>
-                        <div class="
-                    ItemCol
-                    -rel-size-2
-      
-                    ColDate
-                  ">
-                          <div class="Label -visible-xs"> Date </div>
-                          <div class="Value"> 20 SEP 09:10 </div>
-                        </div>
+                <div class="col-xl-8 -sameheight">
+                  <div class="Card Items" id="DashboardItems">
+                    <div class="CardHeader  -bordered -sm">
+                      <div class="HeaderBlock">
+                        <h4 class="Title"> Recent Items </h4>
                       </div>
                     </div>
-                    <div class="ListFooter"> </div>
+                    <div class="ResponsiveList -striped">
+                      <div class="ListHeader -hidden-xs -hidden-sm">
+                        <div class="ItemCol ColImg -size-auto">
+                          <div class="Img"></div>
+                        </div>
+                        <div class="ItemCol ColName -rel-size-6 ColTitle"> Name </div>
+                        <div class="ItemCol ColSales -rel-size-2 -size-xs-12 -rel-size-xs-12"> Sales </div>
+                        <div class="ItemCol ColStats -rel-size-2 -size-xs-12 ColStats"> Stats </div>
+                        <div class="ItemCol ColDate -rel-size-2 -size-xs-12 ColDate"> Published </div>
+                      </div>
+                      <div class="ListContent">
+                        <div class="ListItem">
+                          <div class="ItemCol ColImg -size-auto">
+                            <div class="Img" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg)"> </div>
+                          </div>
+                          <div class="ItemCol ColName -rel-size-6 -order-sm--2">
+                            <div class="ItemValue">
+                              <a href="" class="Name"> LG Stylo 3 - Prepaid - Carrier Locked - Virgin Mobile </a>
+                            </div>
+                          </div>
+                          <div class="Divider -visible-xs -visible-sm -order-sm--1"> </div>
+                          <div class="ItemCol ColSales -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Sales </div>
+                            <div class="ItemValue"> 4958 </div>
+                          </div>
+                          <div class="Divider -visible-xs"> </div>
+                          <div class="ItemCol ColStats -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Stats </div>
+                            <div class="ItemValue Stats" data-type="bar"> </div>
+                          </div>
+                          <div class="Divider -visible-xs"> </div>
+                          <div class="ItemCol ColDate -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Date </div>
+                            <div class="ItemValue"> 21 SEP 10:45 </div>
+                          </div>
+                        </div>
+                        <div class="ListItem">
+                          <div class="ItemCol ColImg -size-auto">
+                            <div class="Img" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/_everaldo/128.jpg)"> </div>
+                          </div>
+                          <div class="ItemCol ColName -rel-size-6 -order-sm--2">
+                            <div class="ItemValue">
+                              <a href="" class="Name"> DJI Spark Palm launch, Intelligent Portable Mini Drone, Alpine White </a>
+                            </div>
+                          </div>
+                          <div class="Divider -visible-xs -visible-sm -order-sm--1"> </div>
+                          <div class="ItemCol ColSales -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Sales </div>
+                            <div class="ItemValue"> 192 </div>
+                          </div>
+                          <div class="Divider -visible-xs"> </div>
+                          <div class="ItemCol ColStats -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Stats </div>
+                            <div class="ItemValue Stats" data-type="bar"> </div>
+                          </div>
+                          <div class="Divider -visible-xs"> </div>
+                          <div class="ItemCol ColDate -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Date </div>
+                            <div class="ItemValue"> 21 SEP 10:40 </div>
+                          </div>
+                        </div>
+                        <div class="ListItem">
+                          <div class="ItemCol ColImg -size-auto">
+                            <div class="Img" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/eduardo_olv/128.jpg)"> </div>
+                          </div>
+                          <div class="ItemCol ColName -rel-size-6 -order-sm--2">
+                            <div class="ItemValue">
+                              <a href="" class="Name"> Simple Mobile Alcatel Pixi Glory 4G LTE Prepaid </a>
+                            </div>
+                          </div>
+                          <div class="Divider -visible-xs -visible-sm -order-sm--1"> </div>
+                          <div class="ItemCol ColSales -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Sales </div>
+                            <div class="ItemValue"> 2143 </div>
+                          </div>
+                          <div class="Divider -visible-xs"> </div>
+                          <div class="ItemCol ColStats -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Stats </div>
+                            <div class="ItemValue Stats" data-type="bar"> </div>
+                          </div>
+                          <div class="Divider -visible-xs"> </div>
+                          <div class="ItemCol ColDate -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Date </div>
+                            <div class="ItemValue"> 20 SEP 18:14 </div>
+                          </div>
+                        </div>
+                        <div class="ListItem">
+                          <div class="ItemCol ColImg -size-auto">
+                            <div class="Img" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/why_this/128.jpg)"> </div>
+                          </div>
+                          <div class="ItemCol ColName -rel-size-6 -order-sm--2">
+                            <div class="ItemValue">
+                              <a href="" class="Name"> Samsung Electronics UN55MU7600 Curved 55-Inch 4K </a>
+                            </div>
+                          </div>
+                          <div class="Divider -visible-xs -visible-sm -order-sm--1"> </div>
+                          <div class="ItemCol ColSales -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Sales </div>
+                            <div class="ItemValue"> 124 </div>
+                          </div>
+                          <div class="Divider -visible-xs"> </div>
+                          <div class="ItemCol ColStats -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Stats </div>
+                            <div class="ItemValue Stats" data-type="bar"> </div>
+                          </div>
+                          <div class="Divider -visible-xs"> </div>
+                          <div class="ItemCol ColDate -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Date </div>
+                            <div class="ItemValue"> 20 SEP 15:37 </div>
+                          </div>
+                        </div>
+                        <div class="ListItem">
+                          <div class="ItemCol ColImg -size-auto">
+                            <div class="Img" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/w7download/128.jpg)"> </div>
+                          </div>
+                          <div class="ItemCol ColName -rel-size-6 -order-sm--2">
+                            <div class="ItemValue">
+                              <a href="" class="Name"> LG B7A Series 65&quot; OLED 4K HDR Smart TV 2017 Model </a>
+                            </div>
+                          </div>
+                          <div class="Divider -visible-xs -visible-sm -order-sm--1"> </div>
+                          <div class="ItemCol ColSales -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Sales </div>
+                            <div class="ItemValue"> 10214 </div>
+                          </div>
+                          <div class="Divider -visible-xs"> </div>
+                          <div class="ItemCol ColStats -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Stats </div>
+                            <div class="ItemValue Stats" data-type="bar"> </div>
+                          </div>
+                          <div class="Divider -visible-xs"> </div>
+                          <div class="ItemCol ColDate -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Date </div>
+                            <div class="ItemValue"> 20 SEP 13:42 </div>
+                          </div>
+                        </div>
+                        <div class="ListItem">
+                          <div class="ItemCol ColImg -size-auto">
+                            <div class="Img" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/pankogut/128.jpg)"> </div>
+                          </div>
+                          <div class="ItemCol ColName -rel-size-6 -order-sm--2">
+                            <div class="ItemValue">
+                              <a href="" class="Name"> Hard EVA Travel Black Case for DJI Spark Palm launch Intelligent Portable Mini Drone </a>
+                            </div>
+                          </div>
+                          <div class="Divider -visible-xs -visible-sm -order-sm--1"> </div>
+                          <div class="ItemCol ColSales -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Sales </div>
+                            <div class="ItemValue"> 3217 </div>
+                          </div>
+                          <div class="Divider -visible-xs"> </div>
+                          <div class="ItemCol ColStats -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Stats </div>
+                            <div class="ItemValue Stats" data-type="bar"> </div>
+                          </div>
+                          <div class="Divider -visible-xs"> </div>
+                          <div class="ItemCol ColDate -rel-size-2">
+                            <div class="ItemLabel -visible-xs"> Date </div>
+                            <div class="ItemValue"> 20 SEP 09:10 </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ListFooter"> </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-xl-4 -sameheight">
-                <div class="Card SalesBreakdown">
-                  <div class="CardHeader -bordered">
-                    <div class="HeaderBlock">
-                      <h4 class="Title"> Sales breakdown </h4>
+                <div class="col-xl-4 -sameheight">
+                  <div class="Card SalesBreakdown">
+                    <div class="CardHeader -bordered">
+                      <div class="HeaderBlock">
+                        <h4 class="Title"> Sales breakdown </h4>
+                      </div>
                     </div>
-                  </div>
-                  <div class="CardBlock">
-                    <div id="DashboardSalesBreakdownChart"></div>
+                    <div class="CardBlock">
+                      <div id="DashboardSalesBreakdownChart"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -841,10 +635,10 @@
         </div>
       </div>
       <div class="FooterContainer">
-        <footer class="Footer"> This Is Footer </footer>
+        <footer class="Footer AppFooter"> This Is Footer </footer>
       </div>
       <div class="CustomizeContainer">
-        <div class="Customize">
+        <div class="AppCustomize">
           <header class="CustomizeHeader">
             <h4 class="Title"> Customize Theme </h4>
             <a href="" id="CustomizeDismissButton" class="Button -dismiss CustomizeDismissButton">
