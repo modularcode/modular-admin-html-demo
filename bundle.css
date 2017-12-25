@@ -272,7 +272,7 @@ template {
   --FooterShadow: none;
   --SidebarColorBg: #3b4c5d;
   --SidebarColorText: rgba(255, 255, 255, 0.8);
-  --SidebarBgImage: url("/modular-admin-html-demo/sidebar-bg-1.jpg");
+  --SidebarBgImage: url("/sidebar-bg-1.jpg");
   --SidebarBgImageOpacity: 1;
   --SidebarShadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
   --SidebarPaddingHorizontal: 20px;
@@ -9134,8 +9134,8 @@ html {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url(/modular-admin-html-demo/d1cb39775770d4972b63ecd2a137e4f3.eot);
-  src: url(/modular-admin-html-demo/d1cb39775770d4972b63ecd2a137e4f3.eot?#iefix&v=4.7.0) format("embedded-opentype"), url(/modular-admin-html-demo/af7ae505a9eed503f8b8e6982036873e.woff2) format("woff2"), url(/modular-admin-html-demo/fee66e712a8a08eef5805a46892932ad.woff) format("woff"), url(/modular-admin-html-demo/cba12ce667c1197736f1de977317d8cb.ttf) format("truetype"), url(/modular-admin-html-demo/36d50c1381fda7c71d12b6643cbe1ee0.svg#fontawesomeregular) format("svg");
+  src: url(/d1cb39775770d4972b63ecd2a137e4f3.eot);
+  src: url(/d1cb39775770d4972b63ecd2a137e4f3.eot?#iefix&v=4.7.0) format("embedded-opentype"), url(/af7ae505a9eed503f8b8e6982036873e.woff2) format("woff2"), url(/fee66e712a8a08eef5805a46892932ad.woff) format("woff"), url(/cba12ce667c1197736f1de977317d8cb.ttf) format("truetype"), url(/36d50c1381fda7c71d12b6643cbe1ee0.svg#fontawesomeregular) format("svg");
   font-weight: normal;
   font-style: normal; }
 .fa {
@@ -10745,8 +10745,8 @@ html {
 */
 @font-face {
   font-family: 'Pe-icon-7-stroke';
-  src: url(/modular-admin-html-demo/8cb66e38c13769997144aeb38c5efd3a.eot);
-  src: url(/modular-admin-html-demo/8cb66e38c13769997144aeb38c5efd3a.eot?#iefixd7yf1v) format("embedded-opentype"), url(/modular-admin-html-demo/b38ef310874bdd008ac14ef3db939032.woff) format("woff"), url(/modular-admin-html-demo/b26a971a432e158cba81bf0fd5555f8f.ttf) format("truetype"), url(/modular-admin-html-demo/4f548104dd266e53a883e0e9faab3807.svg#Pe-icon-7-stroke) format("svg");
+  src: url(/8cb66e38c13769997144aeb38c5efd3a.eot);
+  src: url(/8cb66e38c13769997144aeb38c5efd3a.eot?#iefixd7yf1v) format("embedded-opentype"), url(/b38ef310874bdd008ac14ef3db939032.woff) format("woff"), url(/b26a971a432e158cba81bf0fd5555f8f.ttf) format("truetype"), url(/4f548104dd266e53a883e0e9faab3807.svg#Pe-icon-7-stroke) format("svg");
   font-weight: normal;
   font-style: normal; }
 [class^="pe-7s-"], [class*=" pe-7s-"] {
@@ -12405,7 +12405,7 @@ pre {
     background-position: center;
     background-repeat: repeat;
     background-size: cover;
-    background-image: url('/modular-admin-html-demo/sidebar-bg-1.jpg');
+    background-image: url('/sidebar-bg-1.jpg');
     background-image: var(--SidebarBgImage);
     opacity: 1;
     opacity: var(--SidebarBgImageOpacity);
